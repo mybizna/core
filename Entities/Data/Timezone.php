@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Base\Entities\Data;
+namespace Modules\Core\Entities\Data;
 
 use Illuminate\Support\Facades\DB;
 use Modules\Base\Classes\Datasetter;
