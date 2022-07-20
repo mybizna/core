@@ -93,7 +93,7 @@ class Timezone extends BaseModel
 
     public function post_migration(Blueprint $table)
     {
-        if (Migration::checkKeyExist('core_country', 'country_id')) {
+        if (Migration::checkKeyExist('core_timezone', 'country_id')) {
             $table->foreign('country_id')->references('id')->on('core_country')->nullOnDelete();
         }
     }
