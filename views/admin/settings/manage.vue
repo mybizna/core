@@ -58,11 +58,12 @@ export default {
     },
     data () {
         return {
+            path_param: ["core", "setting"],
             settings: {},
         }
     },
     updated () {
-
+        this.fetchData();
     },
 
     methods: {
@@ -71,7 +72,10 @@ export default {
         },
         fetchData () {
 
+            var t = this;
             var comp_url = 'fetch_settings/';
+
+            console.log('response.data');
 
             const getdata = async (t) => {
 
@@ -79,6 +83,7 @@ export default {
                     .then(
                         response => {
                             t.settings = response.data;
+                            console.log(response.data);
                         });
             };
 

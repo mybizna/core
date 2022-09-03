@@ -16,6 +16,3 @@ use Illuminate\Support\Facades\Route;
 $apicontroller = 'CoreController';
 
 Route::get('fetch_settings', $apicontroller . '@fetchSettings');
-
-Route::middleware('auth:sanctum')->group(function () {
-});
