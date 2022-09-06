@@ -1,52 +1,42 @@
 <template>
     <table-edit :path_param="path_param" :model="model">
 
-        <ul class="nav nav-tabs" id="myPayment" role="tablist">
-            <li v-for="(setting, s_index) in settings" v-bind:key="s_index" class="nav-item" role="presentation">
-                <button :class="!s_index ? 'nav-link active' : 'nav-link'" :id="s_index + '-tab'" data-bs-toggle="tab"
-                    :data-bs-target="'#' + s_index" type="button" role="tab" :aria-controls="s_index"
-                    :aria-selected="!s_index ? 'true' : 'false'">
-                    <i class="fas fa-check-circle"></i>
-                    {{
-                            setting.title
-                    }}</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="myPaymentContent">
-            <div v-for="(setting, s_index) in settings" v-bind:key="s_index"
-                :class="!s_index ? 'tab-pane fade show active' : 'tab-pane fade'" :id="s_index" role="tabpanel"
-                :aria-labelledby="s_index + '-tab'">
-                <div class="p-2">
-                    <FormKit label="Amount" id="amount" type="number" validation="required"
-                        v-model="setting.paid_amount" @keyup="calculateTotal" />
-                    <FormKit label="Reference" id="reference" type="text" v-model="setting.reference" />
-                    <FormKit label="Others" id="others" type="text" v-model="setting.others" />
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <template v-for="(setting, s_index) in settings" v-bind:key="s_index">
+                    <button :class="s_index == current_tab ? 'nav-link active' : 'nav-link'"
+                        :id="'v-pills-' + s_index + '-tab'" data-bs-toggle="tab"
+                        :data-bs-target="'#v-pills-' + + s_index" type="button" role="tab" :aria-controls="s_index"
+                        :aria-selected="!s_index ? 'true' : 'false'">
+                        {{
+                                setting.title
+                        }}</button>
+                </template>
+            </div>
+            <div class="tab-content w-3/4" id="v-pills-tabContent">
+                <div v-for="(setting, s_index) in settings" v-bind:key="s_index"
+                    :class="s_index == current_tab ? 'tab-pane fade show active' : 'tab-pane fade'" :id="s_index"
+                    role="tabpanel" :aria-labelledby="s_index + '-tab'">
+                    <div class="p-2">
+                        <div v-for="(subsetting, s_index) in setting.settings" v-bind:key="s_index">
+                            <h3>{{ subsetting.title }}</h3>
+                            <template v-for="(field, s_index) in subsetting.list" v-bind:key="s_index">
+                                {{ field.params.type }}
+                                <FormKit v-if="field.params.type == 'recordpicker'" :label="field.params.name"
+                                    :id="field.params.name" :type="field.params.type" :comp_url="field.params.comp_url"
+                                    :setting="field.params.setting" v-model="field.params.value" />
+
+                                <FormKit v-else :label="field.title" :id="field.params.name" :type="field.params.type"
+                                    v-model="field.params.value" />
+
+                            </template>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <FormKit label="Id" id="id" type="hidden" validation="required" />
-                <FormKit label="Title" id="title" type="text" validation="required" />
-                <FormKit label="Slug" id="slug" type="text" validation="required" />
-                <FormKit label="Value" id="value" type="text" validation="required" />
-                <FormKit label="Start Amount" id="start_amount" type="text" validation="required" />
-                <FormKit label="End Amount" id="end_amount" type="text" validation="required" />
-            </div>
-            <div class="col-md-6">
-                <FormKit label="Is Percent" id="is_percent" type="text" validation="required" />
-                <FormKit label="Is Visible" id="is_visible" type="text" validation="required" />
-                <FormKit label="Published" id="published" type="text" validation="required" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <FormKit label="File Limit" id="file_limit" type="text" validation="required" />
-                <FormKit label="File Type" id="file_type" type="text" validation="required" />
-                <FormKit label="File Structure" id="file_structure" type="text" validation="required" />
-                <FormKit label="File Suffix" id="file_suffix" type="text" validation="required" />
-            </div>
-        </div>
+
 
     </table-edit>
 </template>
@@ -60,10 +50,15 @@ export default {
         return {
             path_param: ["core", "setting"],
             settings: {},
+            current_tab: 'account',
         }
     },
-    updated () {
+    created () {
+        console.log('response.data');
+        console.log('response.data');
+
         this.fetchData();
+
     },
 
     methods: {
@@ -75,6 +70,8 @@ export default {
             var t = this;
             var comp_url = 'fetch_settings/';
 
+            console.log('response.data');
+            console.log('response.data');
             console.log('response.data');
 
             const getdata = async (t) => {
