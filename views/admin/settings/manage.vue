@@ -21,8 +21,7 @@
                         <div v-for="(subsetting, s_index) in setting.settings" v-bind:key="s_index">
                             <h3>{{ subsetting.title }}</h3>
                             <template v-for="(field, s_index) in subsetting.list" v-bind:key="s_index">
-                                {{ field.params.type }}
-                                <FormKit v-if="field.params.type == 'recordpicker'" :label="field.params.name"
+                                <FormKit v-if="field.params.type == 'recordpicker'" :label="field.params.title"
                                     :id="field.params.name" :type="field.params.type" :comp_url="field.params.comp_url"
                                     :setting="field.params.setting" v-model="field.params.value" />
 
