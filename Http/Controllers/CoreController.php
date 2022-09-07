@@ -38,7 +38,7 @@ class CoreController extends BaseController
                 foreach ($setting['settings'] as $model => $model_setting) {
                     foreach ($model_setting['list'] as $module => $field) {
                         $params = $field['params'];
-                        $system_setting->saveSetting($module, $model, $params['name'], $params['value']);
+                        $system_setting->saveSetting($module, $model, $field['name'],$params['type'], $params['value']);
                     }
                 }
             }
