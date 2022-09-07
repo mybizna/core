@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 $apicontroller = 'CoreController';
 
 Route::get('fetch_settings', $apicontroller . '@fetchSettings');
+Route::post('setting/savedata', $apicontroller . '@saveSetting');
