@@ -52,11 +52,7 @@ export default {
         }
     },
     created () {
-        console.log('response.data');
-        console.log('response.data');
-
         this.fetchData();
-
     },
 
     methods: {
@@ -67,10 +63,6 @@ export default {
 
             var t = this;
             var comp_url = 'fetch_settings/';
-
-            console.log('response.data');
-            console.log('response.data');
-            console.log('response.data');
 
             const getdata = async (t) => {
 

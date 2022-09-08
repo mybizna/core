@@ -33,10 +33,12 @@ class CoreController extends BaseController
 
         $settings =  $data['settings'];
 
+
+
         try {
             foreach ($settings as $module => $setting) {
                 foreach ($setting['settings'] as $model => $model_setting) {
-                    foreach ($model_setting['list'] as $module => $field) {
+                    foreach ($model_setting['list'] as $field_index => $field) {
                         $params = $field['params'];
                         $system_setting->saveSetting($module, $model, $field['name'],$params['type'], $params['value']);
                     }
