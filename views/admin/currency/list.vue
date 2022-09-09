@@ -36,7 +36,7 @@ export default {
                 {
                     text: "Country",
                     prop: "[core_country__name]",
-                    name: "chart_id",
+                    name: "country_id",
                     foreign: ['core_country__name'],
                 },
                 { text: "Symbol", prop: "symbol", name: "symbol", },

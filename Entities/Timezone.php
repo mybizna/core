@@ -13,16 +13,6 @@ class Timezone extends BaseModel
 {
 
     /**
-     * Trait to allow softdeleting of records.
-     */
-    use SoftDeletes;
-
-    /**
-     * Traits for managing user modification details
-     */
-    use Userstamps;
-
-    /**
      * The attributes that should be mutated to dates.
      *
      * @var array

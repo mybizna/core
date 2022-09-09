@@ -5,41 +5,19 @@ namespace Modules\Core\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Wildside\Userstamps\Userstamps;
 use Modules\Base\Classes\Migration;
 
 class Currency extends BaseModel
 {
+    protected $table = 'core_currency';
 
-    /**
-     * Trait to allow softdeleting of records.
-     */
-    use SoftDeletes;
-
-    /**
-     * Traits for managing user modification details
-     */
-    use Userstamps;
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = ['created_by', 'updated_by', 'deleted_at'];
     public $migrationDependancy = ['core_country'];
 
+    protected $dates = ['created_by', 'updated_by', 'deleted_at'];
+
     protected $fillable = [
-        "country_id",
-        "name",
-        "code",
-        "symbol",
-        "rate",
-        "buying",
-        "selling",
-        "published",
-        "is_fetched",
+        "country_id", "name", "code", "symbol", "rate",
+        "buying", "selling", "published", "is_fetched",
     ];
 
     /**
@@ -47,7 +25,7 @@ class Currency extends BaseModel
      *
      * @var string
      */
-    protected $table = 'core_currency';
+
 
     /**
      * Get the country record associated with this record.
