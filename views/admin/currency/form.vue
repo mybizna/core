@@ -6,7 +6,6 @@
                 <FormKit label="Id" id="id" type="hidden" validation="required" />
                 <FormKit label="Name" id="name" type="text" validation="required" />
                 <FormKit label="Code" id="code" type="text" validation="required" />
-                <FormKit label="Country" id="country_id" type="text" validation="required" />
                 <FormKit label="rate" id="rate" type="text" validation="required" />
 
             </div>
@@ -33,7 +32,6 @@ export default {
             model: {
                 id: "",
                 name: "",
-                country_id: "",
                 code: "",
                 rate: "",
                 buying: "",
