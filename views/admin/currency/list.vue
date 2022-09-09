@@ -15,7 +15,6 @@ export default {
             path_param: ["core", "currency"],
             model: {
                 name: "",
-                country_id: "",
                 code: "",
                 rate: "",
                 buying: "",
@@ -32,13 +31,6 @@ export default {
             table_fields: [
                 { text: "Name", prop: "name", name: "name", },
                 { text: "Code", prop: "code", name: "code", },
-
-                {
-                    text: "Country",
-                    prop: "[core_country__name]",
-                    name: "country_id",
-                    foreign: ['core_country__name'],
-                },
                 { text: "Symbol", prop: "symbol", name: "symbol", },
                 { text: "Rate", prop: "rate", name: "rate", },
                 { text: "Buying", prop: "buying", name: "buying", },

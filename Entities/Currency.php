@@ -11,12 +11,12 @@ class Currency extends BaseModel
 {
     protected $table = 'core_currency';
 
-    public $migrationDependancy = ['core_country'];
+    public $migrationDependancy = [];
 
     protected $dates = ['created_by', 'updated_by', 'deleted_at'];
 
     protected $fillable = [
-        "country_id", "name", "code", "symbol", "rate",
+     "name", "code", "symbol", "rate",
         "buying", "selling", "published", "is_fetched",
     ];
 
@@ -27,13 +27,6 @@ class Currency extends BaseModel
      */
 
 
-    /**
-     * Get the country record associated with this record.
-     */
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo('Modules\Base\Entities\Country', 'country_id');
-    }
 
     /**
      * Get the user that created the record.
@@ -80,7 +73,6 @@ class Currency extends BaseModel
     {
         $table->increments('id');
         $table->string('name', 255);
-        $table->unsignedInteger('country_id')->nullable()->default(null);
         $table->string('code', 255)->nullable()->default(null);
         $table->string('symbol', 255)->nullable()->default(null);
         $table->decimal('rate', 11, 2)->nullable()->default(null);
