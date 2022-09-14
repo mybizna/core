@@ -12,7 +12,7 @@ class CountryCurrency extends BaseModel
 
     public $migrationDependancy = [];
 
-    protected $fillable = ['currency_code', 'country_code'];
+    protected $fillable = ['currency_code', 'country_code', 'country_code3'];
 
 
     /**
