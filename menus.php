@@ -6,7 +6,7 @@ $this->add_module_info("core", [
     'title' => 'Core',
     'description' => 'Core',
     'icon' => 'fas fa-receipt',
-    'path' => 'core.admin.country',
+    'path' => '/core/admin/country',
     'class_str'=> 'text-warning border-warning'
 ]);
 
