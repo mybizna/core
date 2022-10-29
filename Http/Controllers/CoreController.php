@@ -33,8 +33,6 @@ class CoreController extends BaseController
 
         $settings =  $data['settings'];
 
-
-
         try {
             foreach ($settings as $module => $setting) {
                 foreach ($setting['settings'] as $model => $model_setting) {
