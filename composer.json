@@ -2,7 +2,7 @@
     "name": "mybizna/core",
     "description": "",
     "type": "asgard-module",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "mybizna/base": "^1.0.3"
+        "mybizna/base": "^1.0.4"
     },
     "extra": {
         "laravel": {
