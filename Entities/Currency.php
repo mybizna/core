@@ -13,7 +13,7 @@ class Currency extends BaseModel
 
     public $migrationDependancy = [];
 
-    protected $dates = ['created_by', 'updated_by', 'deleted_at'];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     protected $fillable = [
      "name", "code", "symbol", "rate",
