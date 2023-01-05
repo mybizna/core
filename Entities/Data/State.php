@@ -11752,238 +11752,238 @@ class State
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1822,
-            "name" => "Aceh", "country_code" => "item_id", "state_code" => "AC",
+            "name" => "Aceh", "country_code" => "ID", "state_code" => "AC",
             "type" => "province",
             "latitude" => "4.69513500",
             "longitude" => "96.74939930"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1826,
-            "name" => "Bali", "country_code" => "item_id", "state_code" => "BA",
+            "name" => "Bali", "country_code" => "ID", "state_code" => "BA",
             "type" => "province",
             "latitude" => "-8.34053890",
             "longitude" => "115.09195090"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1810,
-            "name" => "Banten", "country_code" => "item_id", "state_code" => "BT",
+            "name" => "Banten", "country_code" => "ID", "state_code" => "BT",
             "type" => "province",
             "latitude" => "-6.40581720",
             "longitude" => "106.06401790"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1793,
-            "name" => "Bengkulu", "country_code" => "item_id", "state_code" => "BE",
+            "name" => "Bengkulu", "country_code" => "ID", "state_code" => "BE",
             "type" => "province",
             "latitude" => "-3.79284510",
             "longitude" => "102.26076410"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1829,
-            "name" => "DI Yogyakarta", "country_code" => "item_id", "state_code" => "YO",
+            "name" => "DI Yogyakarta", "country_code" => "ID", "state_code" => "YO",
             "type" => "province",
             "latitude" => "-7.87538490",
             "longitude" => "110.42620880"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1805,
-            "name" => "DKI Jakarta", "country_code" => "item_id", "state_code" => "JK",
+            "name" => "DKI Jakarta", "country_code" => "ID", "state_code" => "JK",
             "type" => "capital district",
             "latitude" => "-6.20876340",
             "longitude" => "106.84559900"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1812,
-            "name" => "Gorontalo", "country_code" => "item_id", "state_code" => "GO",
+            "name" => "Gorontalo", "country_code" => "ID", "state_code" => "GO",
             "type" => "province",
             "latitude" => "0.54354420",
             "longitude" => "123.05676930"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1815,
-            "name" => "Jambi", "country_code" => "item_id", "state_code" => "JA",
+            "name" => "Jambi", "country_code" => "ID", "state_code" => "JA",
             "type" => "province",
             "latitude" => "-1.61012290",
             "longitude" => "103.61312030"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1825,
-            "name" => "Jawa Barat", "country_code" => "item_id", "state_code" => "JB",
+            "name" => "Jawa Barat", "country_code" => "ID", "state_code" => "JB",
             "type" => "province",
             "latitude" => "-7.09091100",
             "longitude" => "107.66888700"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1802,
-            "name" => "Jawa Tengah", "country_code" => "item_id", "state_code" => "JT",
+            "name" => "Jawa Tengah", "country_code" => "ID", "state_code" => "JT",
             "type" => "province",
             "latitude" => "-7.15097500",
             "longitude" => "110.14025940"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1827,
-            "name" => "Jawa Timur", "country_code" => "item_id", "state_code" => "JI",
+            "name" => "Jawa Timur", "country_code" => "ID", "state_code" => "JI",
             "type" => "province",
             "latitude" => "-7.53606390",
             "longitude" => "112.23840170"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1806,
-            "name" => "Kalimantan Barat", "country_code" => "item_id", "state_code" => "KB",
+            "name" => "Kalimantan Barat", "country_code" => "ID", "state_code" => "KB",
             "type" => "province",
             "latitude" => "0.47734750",
             "longitude" => "106.61314050"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1819,
-            "name" => "Kalimantan Selatan", "country_code" => "item_id", "state_code" => "KS",
+            "name" => "Kalimantan Selatan", "country_code" => "ID", "state_code" => "KS",
             "type" => "province",
             "latitude" => "-3.09264150",
             "longitude" => "115.28375850"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1794,
-            "name" => "Kalimantan Tengah", "country_code" => "item_id", "state_code" => "KT",
+            "name" => "Kalimantan Tengah", "country_code" => "ID", "state_code" => "KT",
             "type" => "province",
             "latitude" => "-1.68148780",
             "longitude" => "113.38235450"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1804,
-            "name" => "Kalimantan Timur", "country_code" => "item_id", "state_code" => "KI",
+            "name" => "Kalimantan Timur", "country_code" => "ID", "state_code" => "KI",
             "type" => "province",
             "latitude" => "0.53865860",
             "longitude" => "116.41938900"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1824,
-            "name" => "Kalimantan Utara", "country_code" => "item_id", "state_code" => "KU",
+            "name" => "Kalimantan Utara", "country_code" => "ID", "state_code" => "KU",
             "type" => "province",
             "latitude" => "3.07309290",
             "longitude" => "116.04138890"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1820,
-            "name" => "Kepulauan Bangka Belitung", "country_code" => "item_id", "state_code" => "BB",
+            "name" => "Kepulauan Bangka Belitung", "country_code" => "ID", "state_code" => "BB",
             "type" => "province",
             "latitude" => "-2.74105130",
             "longitude" => "106.44058720"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1807,
-            "name" => "Kepulauan Riau", "country_code" => "item_id", "state_code" => "KR",
+            "name" => "Kepulauan Riau", "country_code" => "ID", "state_code" => "KR",
             "type" => "province",
             "latitude" => "3.94565140",
             "longitude" => "108.14286690"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1811,
-            "name" => "Lampung", "country_code" => "item_id", "state_code" => "LA",
+            "name" => "Lampung", "country_code" => "ID", "state_code" => "LA",
             "type" => "province",
             "latitude" => "-4.55858490",
             "longitude" => "105.40680790"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1800,
-            "name" => "Maluku", "country_code" => "item_id", "state_code" => "MA",
+            "name" => "Maluku", "country_code" => "ID", "state_code" => "MA",
             "type" => "province",
             "latitude" => "-3.23846160",
             "longitude" => "130.14527340"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1801,
-            "name" => "Maluku Utara", "country_code" => "item_id", "state_code" => "MU",
+            "name" => "Maluku Utara", "country_code" => "ID", "state_code" => "MU",
             "type" => "province",
             "latitude" => "1.57099930",
             "longitude" => "127.80876930"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1814,
-            "name" => "Nusa Tenggara Barat", "country_code" => "item_id", "state_code" => "NB",
+            "name" => "Nusa Tenggara Barat", "country_code" => "ID", "state_code" => "NB",
             "type" => "province",
             "latitude" => "-8.65293340",
             "longitude" => "117.36164760"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1818,
-            "name" => "Nusa Tenggara Timur", "country_code" => "item_id", "state_code" => "NT",
+            "name" => "Nusa Tenggara Timur", "country_code" => "ID", "state_code" => "NT",
             "type" => "province",
             "latitude" => "-8.65738190",
             "longitude" => "121.07937050"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1798,
-            "name" => "Papua", "country_code" => "item_id", "state_code" => "PA",
+            "name" => "Papua", "country_code" => "ID", "state_code" => "PA",
             "type" => "province",
             "latitude" => "-5.01222020",
             "longitude" => "141.34701590"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1799,
-            "name" => "Papua Barat", "country_code" => "item_id", "state_code" => "PB",
+            "name" => "Papua Barat", "country_code" => "ID", "state_code" => "PB",
             "type" => "province",
             "latitude" => "-1.33611540",
             "longitude" => "133.17471620"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1809,
-            "name" => "Riau", "country_code" => "item_id", "state_code" => "RI",
+            "name" => "Riau", "country_code" => "ID", "state_code" => "RI",
             "type" => "province",
             "latitude" => "0.29334690",
             "longitude" => "101.70682940"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1817,
-            "name" => "Sulawesi Barat", "country_code" => "item_id", "state_code" => "SR",
+            "name" => "Sulawesi Barat", "country_code" => "ID", "state_code" => "SR",
             "type" => "province",
             "latitude" => "-2.84413710",
             "longitude" => "119.23207840"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1795,
-            "name" => "Sulawesi Selatan", "country_code" => "item_id", "state_code" => "SN",
+            "name" => "Sulawesi Selatan", "country_code" => "ID", "state_code" => "SN",
             "type" => "province",
             "latitude" => "-3.66879940",
             "longitude" => "119.97405340"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1813,
-            "name" => "Sulawesi Tengah", "country_code" => "item_id", "state_code" => "ST",
+            "name" => "Sulawesi Tengah", "country_code" => "ID", "state_code" => "ST",
             "type" => "province",
             "latitude" => "-1.43002540",
             "longitude" => "121.44561790"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1796,
-            "name" => "Sulawesi Tenggara", "country_code" => "item_id", "state_code" => "SG",
+            "name" => "Sulawesi Tenggara", "country_code" => "ID", "state_code" => "SG",
             "type" => "province",
             "latitude" => "-4.14491000",
             "longitude" => "122.17460500"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1808,
-            "name" => "Sulawesi Utara", "country_code" => "item_id", "state_code" => "SA",
+            "name" => "Sulawesi Utara", "country_code" => "ID", "state_code" => "SA",
             "type" => "province",
             "latitude" => "0.62469320",
             "longitude" => "123.97500180"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1828,
-            "name" => "Sumatera Barat", "country_code" => "item_id", "state_code" => "SB",
+            "name" => "Sumatera Barat", "country_code" => "ID", "state_code" => "SB",
             "type" => "province",
             "latitude" => "-0.73993970",
             "longitude" => "100.80000510"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1816,
-            "name" => "Sumatera Selatan", "country_code" => "item_id", "state_code" => "SS",
+            "name" => "Sumatera Selatan", "country_code" => "ID", "state_code" => "SS",
             "type" => "province",
             "latitude" => "-3.31943740",
             "longitude" => "103.91439900"
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1792,
-            "name" => "Sumatera Utara", "country_code" => "item_id", "state_code" => "SU",
+            "name" => "Sumatera Utara", "country_code" => "ID", "state_code" => "SU",
             "type" => "province",
             "latitude" => "2.11535470",
             "longitude" => "99.54509740"
@@ -28094,7 +28094,7 @@ class State
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 2940,
-            "name" => "Idlib Governorate", "country_code" => "SY", "state_code" => "item_id",
+            "name" => "Idlib Governorate", "country_code" => "SY", "state_code" => "IG",
             "type" => null,
             "latitude" => "35.82687980",
             "longitude" => "36.69572160"
@@ -33323,7 +33323,7 @@ class State
         ]);
         $datasetter->add_data('core', 'state',  'item_id', [
             "item_id" => 1460,
-            "name" => "Idaho", "country_code" => "US", "state_code" => "item_id",
+            "name" => "Idaho", "country_code" => "US", "state_code" => "ID",
             "type" => "state",
             "latitude" => "44.06820190",
             "longitude" => "-114.74204080"
