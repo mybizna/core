@@ -13,5 +13,6 @@ $this->add_module_info("core", [
 $this->add_menu("core", "country", "Country", "/core/admin/country", "fas fa-cogs", 5);
 $this->add_menu("core", "currency", "Currency", "/core/admin/currency", "fas fa-cogs", 5);
 $this->add_menu("core", "setting", "Setting", "/core/admin/setting", "fas fa-cogs", 5);
+$this->add_menu("core", "notification", "Notification", "/core/admin/notification", "fas fa-cogs", 5);
 $this->add_menu("core", "state", "State", "/core/admin/state", "fas fa-cogs", 5);
 $this->add_menu("core", "timezone", "Timezone", "/core/admin/timezone", "fas fa-cogs", 5);
