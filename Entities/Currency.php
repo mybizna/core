@@ -80,6 +80,7 @@ class Currency extends BaseModel
         $table->decimal('selling', 11, 2)->nullable()->default(null);
         $table->integer('published')->nullable()->default(0);
         $table->integer('is_fetched')->nullable()->default(0);
+        $table->tinyInteger('system')->default(false);
     }
 
     public function post_migration(Blueprint $table)
@@ -87,5 +88,26 @@ class Currency extends BaseModel
         if (Migration::checkKeyExist('core_currency', 'country_id')) {
             $table->foreign('country_id')->references('id')->on('core_country')->nullOnDelete();
         }
+    }
+
+
+    public function deleteRecord($id)
+    {
+
+        $currency = $this->where('id', $id)->first();
+
+        if ($currency->system) {
+            return [
+                'module' => $this->module,
+                'model' => $this->model,
+                'status' => 0,
+                'error' => 1,
+                'record' => [],
+                'message' => 'You can not Delete a Currency Set by system..',
+            ];
+        }
+
+        parent::deleteRecord($id);
+
     }
 }

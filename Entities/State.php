@@ -38,5 +38,27 @@ class State extends BaseModel
         $table->string('state_code', 5)->nullable()->default(null);
         $table->string('latitude', 255)->nullable()->default(null);
         $table->string('longitude', 255)->nullable()->default(null);
+        $table->tinyInteger('system')->default(false);
+    }
+
+
+    public function deleteRecord($id)
+    {
+
+        $state = $this->where('id', $id)->first();
+
+        if ($state->system) {
+            return [
+                'module' => $this->module,
+                'model' => $this->model,
+                'status' => 0,
+                'error' => 1,
+                'record' => [],
+                'message' => 'You can not Delete a State Set by system..',
+            ];
+        }
+
+        parent::deleteRecord($id);
+
     }
 }

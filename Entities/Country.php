@@ -36,5 +36,26 @@ class Country extends BaseModel
         $table->string('code3', 3)->nullable()->default(null);
         $table->string('latitude', 255)->nullable()->default(null);
         $table->string('longitude', 255)->nullable()->default(null);
+        $table->tinyInteger('system')->default(false);
+    }
+
+    public function deleteRecord($id)
+    {
+
+        $country = $this->where('id', $id)->first();
+
+        if ($country->system) {
+            return [
+                'module' => $this->module,
+                'model' => $this->model,
+                'status' => 0,
+                'error' => 1,
+                'record' => [],
+                'message' => 'You can not Delete a Country Set by system.',
+            ];
+        }
+
+        parent::deleteRecord($id);
+
     }
 }
