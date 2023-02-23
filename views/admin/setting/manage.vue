@@ -1,5 +1,5 @@
 <template>
-    <table-edit :path_param="path_param" :model="model" passed_form_url="setting/savedata">
+    <edit-render :path_param="path_param" :model="model" passed_form_url="setting/savedata">
 
         <div class="d-flex align-items-start">
             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -36,14 +36,11 @@
         </div>
 
 
-    </table-edit>
+    </edit-render>
 </template>
 
 <script>
 export default {
-    components: {
-        TableEdit: window.$func.fetchComponent("components/common/TableEdit.vue")
-    },
     data () {
         return {
             path_param: ["core", "setting"],
