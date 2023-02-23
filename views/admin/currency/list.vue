@@ -1,38 +1,36 @@
 <template>
-    <table-render title="Currency" :path_param="path_param" :search_fields="search_fields" :model="model"
-        :table_fields="table_fields"></table-render>
+    <table-render :path_param="['core', 'currency']" title="Currency" :table_fields="table_fields">
+
+        <template #header>
+            <th-render>Name</th-render>
+            <th-render>Code</th-render>
+            <th-render>Symbol</th-render>
+            <th-render>Rate</th-render>
+            <th-render>Buying</th-render>
+            <th-render>Selling</th-render>
+            <th-render>Published</th-render>
+            <th-render>Is Fetched</th-render>
+        </template>
+
+        <template #body="{ item }">
+            <td>{{ item.name }}</td>
+            <td>{{ item.code }}</td>
+            <td>{{ item.symbol }}</td>
+            <td>{{ item.rate }}</td>
+            <td>{{ item.buying }}</td>
+            <td>{{ item.selling }}</td>
+            <td>{{ item.published }}</td>
+            <td>{{ item.is_fetched }}</td>
+        </template>
+
+    </table-render>
 </template>
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["core", "currency"],
-            model: {
-                name: "",
-                code: "",
-                rate: "",
-                buying: "",
-                selling: "",
-                published: "",
-                is_fetched: "",
-            },
-            search_fields: [
-                { type: "text", name: "name", label: "Name", ope: "", },
-                { type: "text", name: "code", label: "code", ope: "", },
-                { type: "switch", name: "published", label: "Published", ope: "", },
-                { type: "switch", name: "Is Fetched", label: "is_fetched", ope: "", },
-            ],
-            table_fields: [
-                { text: "Name", prop: "name", name: "name", },
-                { text: "Code", prop: "code", name: "code", },
-                { text: "Symbol", prop: "symbol", name: "symbol", },
-                { text: "Rate", prop: "rate", name: "rate", },
-                { text: "Buying", prop: "buying", name: "buying", },
-                { text: "Selling", prop: "selling", name: "selling", },
-                { text: "Published", prop: "published", align: "center", is_boolean: true, name: "published", },
-                { text: "Is Fetched", prop: "is_fetched", align: "center", is_boolean: true, name: "is_fetched", },
-            ],
+            table_fields: ['name', 'code', 'symbol', 'rate', 'buying', 'selling', 'published', 'is_fetched'],
         };
     },
 };

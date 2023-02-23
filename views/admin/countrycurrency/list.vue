@@ -1,28 +1,27 @@
 <template>
-    <table-render title="Country Currency" :path_param="path_param" :search_fields="search_fields" :model="model"
-        :table_fields="table_fields"></table-render>
+    <table-render :path_param="['core', 'countrycurrency']" title="Country Currency" :table_fields="table_fields">
+
+
+        <template #header>
+            <th-render>Currency Code</th-render>
+            <th-render>Country Code</th-render>
+            <th-render>Country Code3</th-render>
+        </template>
+
+        <template #body="{ item }">
+            <td>{{ item.currency_code }}</td>
+            <td>{{ item.country_code }}</td>
+            <td>{{ item.country_code3 }}</td>
+        </template>
+
+    </table-render>
 </template>
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["core", "countrycurrency"],
-            model: {
-                currency_code: "",
-                country_code: "",
-                country_code3: "",
-            },
-            search_fields: [
-                { type: "text", name: "currency_code", label: "Currency Code", ope: "", },
-                { type: "text", name: "country_code", label: "Country Code", ope: "", },
-                { type: "text", name: "country_code3", label: "Country Code3", ope: "", },
-            ],
-            table_fields: [
-                { text: "Currency Code", prop: "currency_code", name: "currency_code", },
-                { text: "Country Code", prop: "country_code", name: "country_code", },
-                { text: "Country Code3", prop: "country_code3", name: "country_code3", },
-            ],
+            table_fields: ['currency_code', 'country_code', 'country_code3'],
         };
     },
 };

@@ -1,30 +1,24 @@
 <template>
-    <table-render title="Timezone" :path_param="path_param" :search_fields="search_fields" :model="model"
-        :table_fields="table_fields"></table-render>
+    <table-render :path_param="['core', 'timezone']" title="Timezone" :table_fields="table_fields">
+
+        <template #header>
+            <th-render>Name</th-render>
+            <th-render>Country</th-render>
+        </template>
+
+        <template #body="{ item }">
+            <td>{{ item.name }}</td>
+            <td>{{ item.country_id__core_country__name }}</td>
+        </template>
+
+    </table-render>
 </template>
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["core", "timezone"],
-            model: {
-                country_id: "",
-                name: "",
-            },
-            search_fields: [
-                { type: "text", name: "name", label: "Name", ope: "", },
-                { type: "text", name: "country_id", label: "Country", ope: "", },
-            ],
-            table_fields: [
-                { text: "Name", prop: "name", name: "name", },
-                {
-                    text: "Country",
-                    prop: "[core_country__name]",
-                    name: "country_id",
-                    foreign: ['core_country__name'],
-                },
-            ],
+            table_fields: ['name', 'country_id__core_country__name'],
         };
     },
 };

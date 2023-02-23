@@ -1,35 +1,30 @@
 <template>
-    <table-render title="Setting" :path_param="path_param" :search_fields="search_fields" :model="model"
-        :table_fields="table_fields"></table-renderer>
+    <table-render :path_param="['core', 'setting']" title="Setting" :table_fields="table_fields">
+
+        <template #header>
+            <th-render>Module</th-render>
+            <th-render>Model</th-render>
+            <th-render>Name</th-render>
+            <th-render>Type</th-render>
+            <th-render>Value</th-render>
+        </template>
+
+        <template #body="{ item }">
+            <td>{{ item.module }}</td>
+            <td>{{ item.model }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.value }}</td>
+        </template>
+
+    </table-render>
 </template>
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["core", "setting"],
-            model: {
-                module: "",
-                model: "",
-                name: "",
-                type: "",
-                value: "",
-            },
-
-            search_fields: [
-                { type: "text", name: "module", label: "Module", ope: "", },
-                { type: "text", name: "model", label: "Model", ope: "", },
-                { type: "text", name: "name", label: "Name", ope: "", },
-                { type: "text", name: "type", label: "Type", ope: "", },
-                { type: "text", name: "value", label: "Value", ope: "", },
-            ],
-            table_fields: [
-                { text: "Slug", prop: "module", name: "module", },
-                { text: "Code", prop: "model", name: "model", },
-                { text: "Name", prop: "name", name: "name", },
-                { text: "Name", prop: "type", name: "type", },
-                { text: "Name", prop: "value", name: "value", },
-            ],
+            table_fields: ['module', 'model', 'name', 'type', 'value'],
         };
     },
 };
