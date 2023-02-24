@@ -19,8 +19,12 @@
             <td>{{ item.rate }}</td>
             <td>{{ item.buying }}</td>
             <td>{{ item.selling }}</td>
-            <td>{{ item.published }}</td>
-            <td>{{ item.is_fetched }}</td>
+            <td class="text-center">
+                <btn-status :status="item.published"></btn-status>
+            </td>
+            <td class="text-center">
+                <btn-status :status="item.is_fetched"></btn-status>
+            </td>
         </template>
 
     </table-render>
