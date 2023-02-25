@@ -12,8 +12,8 @@ class Notification extends BaseModel
 
     public $migrationDependancy = [];
 
-    protected $fillable = ['slug', 'short', 'medium', 'long', 'enable_short',
-        'enable_medium', 'enable_long', 'published'];
+    protected $fillable = ['slug', 'short', 'medium', 'lengthy', 'enable_short',
+        'enable_medium', 'enable_lengthy', 'published'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -34,10 +34,10 @@ class Notification extends BaseModel
         $table->string('slug');
         $table->string('short');
         $table->string('medium');
-        $table->string('long');
+        $table->text('lengthy');
         $table->tinyInteger('enable_short')->default(true);
         $table->tinyInteger('enable_medium')->default(false);
-        $table->tinyInteger('enable_long')->default(true);
+        $table->tinyInteger('enable_lengthy')->default(true);
         $table->tinyInteger('published')->default(true);
     }
 }

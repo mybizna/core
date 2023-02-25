@@ -12,7 +12,7 @@ class Country extends BaseModel
 
     public $migrationDependancy = [];
 
-    protected $fillable = ['name', 'code', 'code3', 'latitude', 'longitude'];
+    protected $fillable = ['name', 'code', 'code3', 'latitude', 'longitude','is_system'];
 
 
     /**
@@ -36,7 +36,7 @@ class Country extends BaseModel
         $table->string('code3', 3)->nullable()->default(null);
         $table->string('latitude', 255)->nullable()->default(null);
         $table->string('longitude', 255)->nullable()->default(null);
-        $table->tinyInteger('system')->default(false);
+        $table->tinyInteger('is_system')->default(false);
     }
 
     public function deleteRecord($id)
@@ -44,7 +44,7 @@ class Country extends BaseModel
 
         $country = $this->where('id', $id)->first();
 
-        if ($country->system) {
+        if ($country->is_system) {
             return [
                 'module' => $this->module,
                 'model' => $this->model,

@@ -13,7 +13,7 @@
             <td>{{ item.slug }}</td>
             <td>{{ item.enable_short }}</td>
             <td>{{ item.enable_medium }}</td>
-            <td>{{ item.enable_long }}</td>
+            <td>{{ item.enable_lengthy }}</td>
         </template>
 
     </table-render>
@@ -23,7 +23,7 @@
 export default {
     data() {
         return {
-            table_fields: ['slug', 'enable_short', 'enable_medium', 'enable_long'],
+            table_fields: ['slug', 'enable_short', 'enable_medium', 'enable_lengthy'],
         };
 
 

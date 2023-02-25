@@ -19,10 +19,7 @@ class Timezone extends BaseModel
 
     public $migrationDependancy = ['core_country'];
 
-    protected $fillable = [
-        "name",
-        "country_id",
-    ];
+    protected $fillable = ["name", "country_id", "is_system",];
 
     /**
      * The table associated with the model.
@@ -77,7 +74,7 @@ class Timezone extends BaseModel
         $table->increments('id');
         $table->string('name', 255);
         $table->unsignedInteger('country_id')->nullable()->default(null);
-        $table->tinyInteger('system')->default(false);
+        $table->tinyInteger('is_system')->default(false);
     }
 
     public function post_migration(Blueprint $table)
@@ -92,7 +89,7 @@ class Timezone extends BaseModel
 
         $timezone = $this->where('id', $id)->first();
 
-        if ($timezone->system) {
+        if ($timezone->is_system) {
             return [
                 'module' => $this->module,
                 'model' => $this->model,

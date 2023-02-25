@@ -26,11 +26,11 @@
             </div>
 
             <div class="col-md-6">
-                <FormKit v-model="model.long" label="Long" id="long" type="text" :readonly="true"
+                <FormKit v-model="model.lengthy" label="Long" id="long" type="text" :readonly="true"
                     validation="required" />
             </div>
             <div class="col-md-6">
-                <FormKit v-model="model.enable_long" label="Enable Long" id="enable_long" type="text" :readonly="true"
+                <FormKit v-model="model.enable_lengthy" label="Enable Long" id="enable_lengthy" type="text" :readonly="true"
                     validation="required" />
             </div>
         </div>
@@ -48,10 +48,10 @@ export default {
                 slug: "",
                 short: "",
                 medium: "",
-                long: "",
+                lengthy: "",
                 enable_short: "",
                 enable_medium: "",
-                enable_long: "",
+                enable_lengthy: "",
                 published: "",
             },
         };

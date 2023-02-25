@@ -16,7 +16,7 @@ class Currency extends BaseModel
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     protected $fillable = [
-     "name", "code", "symbol", "rate",
+     "name", "code", "symbol", "rate",'is_system',
         "buying", "selling", "published", "is_fetched",
     ];
 
@@ -80,7 +80,7 @@ class Currency extends BaseModel
         $table->decimal('selling', 11, 2)->nullable()->default(null);
         $table->integer('published')->nullable()->default(0);
         $table->integer('is_fetched')->nullable()->default(0);
-        $table->tinyInteger('system')->default(false);
+        $table->tinyInteger('is_system')->default(false);
     }
 
     public function post_migration(Blueprint $table)
@@ -96,7 +96,7 @@ class Currency extends BaseModel
 
         $currency = $this->where('id', $id)->first();
 
-        if ($currency->system) {
+        if ($currency->is_system) {
             return [
                 'module' => $this->module,
                 'model' => $this->model,

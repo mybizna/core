@@ -2,8 +2,8 @@
 
 namespace Modules\Core\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Entities\BaseModel;
 
 class State extends BaseModel
 {
@@ -12,8 +12,7 @@ class State extends BaseModel
 
     public $migrationDependancy = [];
 
-    protected $fillable = ['name', 'country_code', 'type', 'item_id','state_code', 'latitude', 'longitude'];
-
+    protected $fillable = ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -38,16 +37,15 @@ class State extends BaseModel
         $table->string('state_code', 5)->nullable()->default(null);
         $table->string('latitude', 255)->nullable()->default(null);
         $table->string('longitude', 255)->nullable()->default(null);
-        $table->tinyInteger('system')->default(false);
+        $table->boolean('is_system')->default(true);
     }
-
 
     public function deleteRecord($id)
     {
 
         $state = $this->where('id', $id)->first();
 
-        if ($state->system) {
+        if ($state->is_system) {
             return [
                 'module' => $this->module,
                 'model' => $this->model,
