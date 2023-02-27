@@ -18,9 +18,13 @@ class Notification
 
             if ($notification) {
 
-                $short = Blade::render($notification->short, $data);
-                $medium = Blade::render($notification->medium, $data);
-                $lengthy = Blade::render($notification->lengthy, $data);
+                $data_arr = json_decode(json_encode($data), true);
+
+                $data_arr = is_array($data) ? $data : json_decode(json_encode($data), true);
+
+                $short = Blade::render($notification->short, $data_arr);
+                $medium = Blade::render($notification->medium, $data_arr);
+                $lengthy = Blade::render($notification->lengthy, $data_arr);
 
                 if ($notification->enable_lengthy) {
                     $this->sendLengthy($short, $lengthy, $contact);
