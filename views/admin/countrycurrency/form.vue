@@ -1,5 +1,5 @@
 <template>
-    <edit-render :path_param="path_param" :model="model">
+    <edit-render :path_param="['core', 'countrycurrency']" :model="model">
         <div class="row">
             <div class="col-md-6">
 
@@ -21,7 +21,6 @@ export default {
     data () {
         return {
             id: null,
-            path_param: ["core", "countrycurrency"],
             model: {
                 id: "",
                 currency_code: "",

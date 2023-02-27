@@ -1,15 +1,15 @@
 <template>
-    <edit-render :path_param="path_param" :model="model" passed_form_url="setting/savedata">
+    <edit-render :path_param="['core', 'setting']" :model="model" passed_form_url="setting/savedata">
 
         <div class="d-flex align-items-start">
             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <template v-for="(setting, s_index) in model.settings" v-bind:key="s_index">
                     <button :class="s_index == current_tab ? 'nav-link active' : 'nav-link'"
-                        :id="'v-pills-' + s_index + '-tab'" data-bs-toggle="tab"
-                        :data-bs-target="'#v-pills-' + + s_index" type="button" role="tab" :aria-controls="s_index"
-                        :aria-selected="!s_index ? 'true' : 'false'" @click="current_tab=s_index">
+                        :id="'v-pills-' + s_index + '-tab'" data-bs-toggle="tab" :data-bs-target="'#v-pills-' + + s_index"
+                        type="button" role="tab" :aria-controls="s_index" :aria-selected="!s_index ? 'true' : 'false'"
+                        @click="current_tab = s_index">
                         {{
-                        setting.title
+                            setting.title
                         }}</button>
                 </template>
             </div>
@@ -25,8 +25,8 @@
                                     :id="field.params.name" :type="field.params.type" :comp_url="field.params.comp_url"
                                     :setting="field.params.setting" v-model="field.params.value" />
 
-                                <FormKit v-else :label="field.params.title" :id="field.params.name"  :type="field.params.type"
-                                    v-model="field.params.value" />
+                                <FormKit v-else :label="field.params.title" :id="field.params.name"
+                                    :type="field.params.type" v-model="field.params.value" />
 
                             </template>
                         </div>
@@ -41,14 +41,13 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["core", "setting"],
             current_tab: 'core',
             model: { settings: {} }
         }
     },
-    created () {
+    created() {
         this.fetchData();
     },
 
@@ -56,7 +55,7 @@ export default {
         getNow: function () {
 
         },
-        fetchData () {
+        fetchData() {
 
             var t = this;
             var comp_url = 'fetch_settings/';

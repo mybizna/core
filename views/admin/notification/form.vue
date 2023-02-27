@@ -1,5 +1,5 @@
 <template>
-    <edit-render :path_param="path_param" :model="model">
+    <edit-render :path_param="['core', 'notification']" :model="model">
         <FormKit v-model="model.id" label="Id" id="id" type="hidden" :readonly="true" validation="required" />
         <div class="row">
             <div class="col-md-12">
@@ -42,7 +42,6 @@ export default {
     data() {
         return {
             id: null,
-            path_param: ["core", "notification"],
             model: {
                 id: "",
                 slug: "",

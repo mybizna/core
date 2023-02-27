@@ -1,5 +1,5 @@
 <template>
-    <edit-renderrr :path_param="path_param" :model="model">
+    <edit-render :path_param="['core', 'state']" :model="model">
         <div class="row">
             <div class="col-md-6">
                 <FormKit v-model="model.id" label="Id" id="id" type="hidden" validation="required" />
@@ -17,7 +17,7 @@
         </div>
 
 
-    </edit-renderrr>
+    </edit-render>
 </template>
 
 <script>
@@ -25,7 +25,6 @@ export default {
     data () {
         return {
             id: null,
-            path_param: ["core", "state"],
             model: {
                 id: "",
                 name: "",
