@@ -10,7 +10,7 @@ use Modules\Core\Events\SendShort;
 
 class Notification
 {
-    public function send($slug, $contact, $data)
+    public function send($slug, $contact, $data, $attachments = [])
     {
 
         if ($slug != '') {
@@ -27,7 +27,7 @@ class Notification
                 $lengthy = Blade::render($notification->lengthy, $data_arr);
 
                 if ($notification->enable_lengthy) {
-                    $this->sendLengthy($short, $lengthy, $contact);
+                    $this->sendLengthy($short, $lengthy, $contact, $attachments);
                 }
 
                 if ($notification->enable_medium) {
@@ -46,9 +46,9 @@ class Notification
 
     }
 
-    public function sendEmail($title, $message, $contact)
+    public function sendEmail($title, $message, $contact, $attachments = [])
     {
-        $this->sendLengthy($title, $message, $contact);
+        $this->sendLengthy($title, $message, $contact, $attachments);
     }
 
     public function sendSMS($message, $contact)
@@ -56,9 +56,9 @@ class Notification
         $this->sendMedium($message, $contact);
     }
 
-    public function sendLengthy($title, $message, $contact)
+    public function sendLengthy($title, $message, $contact, $attachments = [])
     {
-        event(new SendLengthy($title, $message, $contact));
+        event(new SendLengthy($title, $message, $contact, $attachments));
     }
 
     public function sendMedium($message, $contact)
