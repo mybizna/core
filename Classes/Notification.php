@@ -18,10 +18,9 @@ class Notification
 
             if ($notification) {
 
-                $data_arr = json_decode(json_encode($data), true);
-
                 $data_arr = is_array($data) ? $data : json_decode(json_encode($data), true);
-
+                $data_arr['partner'] = $contact;
+                
                 $short = Blade::render($notification->short, $data_arr);
                 $medium = Blade::render($notification->medium, $data_arr);
                 $lengthy = Blade::render($notification->lengthy, $data_arr);
