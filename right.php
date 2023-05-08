@@ -34,3 +34,17 @@ $this->add_right("core", "timezone", "supervisor", view:true, add:true, edit:tru
 $this->add_right("core", "timezone", "staff", view:true, add:true, edit:true);
 $this->add_right("core", "timezone", "registered", view:true, add:true);
 $this->add_right("core", "timezone", "guest", view:true, );
+
+$this->add_right("core", "language", "administrator", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "language", "manager", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "language", "supervisor", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "language", "staff", view:true, add:true, edit:true);
+$this->add_right("core", "language", "registered", view:true, add:true);
+$this->add_right("core", "language", "guest", view:true, );
+
+$this->add_right("core", "languagetransaction", "administrator", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "languagetransaction", "manager", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "languagetransaction", "supervisor", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "languagetransaction", "staff", view:true, add:true, edit:true);
+$this->add_right("core", "languagetransaction", "registered", view:true, add:true);
+$this->add_right("core", "languagetransaction", "guest", view:true, );

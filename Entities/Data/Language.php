@@ -1,0 +1,18 @@
+<?php
+
+namespace Modules\Core\Entities\Data;
+
+use Modules\Base\Classes\Datasetter;
+
+class Language
+{
+    public $ordering = 5;
+
+    public function data(Datasetter $datasetter)
+    {
+        $datasetter->add_data('core', 'language', 'code', [
+            "name" => "English-US",
+            "slug" => "EN-US",
+        ]);
+    }
+}

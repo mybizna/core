@@ -16,3 +16,6 @@ $this->add_menu("core", "setting", "Setting", "/core/admin/setting", "fas fa-cog
 $this->add_menu("core", "notification", "Notification", "/core/admin/notification", "fas fa-cogs", 5);
 $this->add_menu("core", "state", "State", "/core/admin/state", "fas fa-cogs", 5);
 $this->add_menu("core", "timezone", "Timezone", "/core/admin/timezone", "fas fa-cogs", 5);
+
+$this->add_menu("core", "language", "Language", "/core/admin/language", "fas fa-cogs", 5);
+$this->add_menu("core", "languagetranslation", "Language Translation", "/core/admin/languagetranslation", "fas fa-cogs", 5);
