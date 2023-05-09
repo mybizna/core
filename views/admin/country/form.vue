@@ -30,10 +30,10 @@ export default {
             model: {
                 id: "",
                 name: "",
-                slug: "",
                 code: "",
-                unused: "",
-                system: "",
+                code3: "",
+                latitude: "",
+                longitude: "",
             },
 
         };

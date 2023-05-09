@@ -10,7 +10,7 @@ class Language
 
     public function data(Datasetter $datasetter)
     {
-        $datasetter->add_data('core', 'language', 'code', [
+        $datasetter->add_data('core', 'language', 'slug', [
             "name" => "English-US",
             "slug" => "EN-US",
         ]);

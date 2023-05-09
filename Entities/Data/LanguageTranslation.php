@@ -10,9 +10,9 @@ class LanguageTranslation
 
     public function data(Datasetter $datasetter)
     {
-        $datasetter->add_data('core', 'language_translation', 'code', [
-            "slug" => "site.title",
-            "language" => "EN-US",
+        $datasetter->add_data('core', 'language_translation', 'slug', [
+            "slug" => "site-title",
+            "language" => "en-us",
             "phrase" => "ERP",
         ]);
     }

@@ -42,9 +42,9 @@ $this->add_right("core", "language", "staff", view:true, add:true, edit:true);
 $this->add_right("core", "language", "registered", view:true, add:true);
 $this->add_right("core", "language", "guest", view:true, );
 
-$this->add_right("core", "languagetransaction", "administrator", view:true, add:true, edit:true, delete:true);
-$this->add_right("core", "languagetransaction", "manager", view:true, add:true, edit:true, delete:true);
-$this->add_right("core", "languagetransaction", "supervisor", view:true, add:true, edit:true, delete:true);
-$this->add_right("core", "languagetransaction", "staff", view:true, add:true, edit:true);
-$this->add_right("core", "languagetransaction", "registered", view:true, add:true);
-$this->add_right("core", "languagetransaction", "guest", view:true, );
+$this->add_right("core", "language_translation", "administrator", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "language_translation", "manager", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "language_translation", "supervisor", view:true, add:true, edit:true, delete:true);
+$this->add_right("core", "language_translation", "staff", view:true, add:true, edit:true);
+$this->add_right("core", "language_translation", "registered", view:true, add:true);
+$this->add_right("core", "language_translation", "guest", view:true, );

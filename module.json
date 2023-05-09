@@ -4,7 +4,9 @@
     "description": "",
     "keywords": [],
     "priority": 0,
-    "providers": [],
+    "providers": [
+        "Modules\\Core\\Providers\\EventServiceProvider"
+    ],
     "aliases": {},
     "files": [],
     "requires": []

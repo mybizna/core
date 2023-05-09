@@ -1,5 +1,5 @@
 <template>
-    <table-render :path_param="['core', 'languagetranslation']" title="Language Translation" :table_fields="table_fields">
+    <table-render :path_param="['core', 'language_translation']" title="Language Translation" :table_fields="table_fields">
 
         <template #header>
             <th-render>Slug</th-render>

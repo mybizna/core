@@ -18,4 +18,4 @@ $this->add_menu("core", "state", "State", "/core/admin/state", "fas fa-cogs", 5)
 $this->add_menu("core", "timezone", "Timezone", "/core/admin/timezone", "fas fa-cogs", 5);
 
 $this->add_menu("core", "language", "Language", "/core/admin/language", "fas fa-cogs", 5);
-$this->add_menu("core", "languagetranslation", "Language Translation", "/core/admin/languagetranslation", "fas fa-cogs", 5);
+$this->add_menu("core", "language_translation", "Language Translation", "/core/admin/language_translation", "fas fa-cogs", 5);

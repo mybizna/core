@@ -31,7 +31,7 @@ class LanguageTranslation extends BaseModel
     {
         $table->increments('id');
         $table->string('slug');
-        $table->char('language', 2);
+        $table->char('language', 5);
         $table->string('phrase');
     }
 }
