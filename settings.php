@@ -1,5 +1,14 @@
 <?php
 
+use Modules\Core\Classes\Currency;
+use Modules\Core\Classes\Language;
+
+$currency = new Currency();
+$language = new Language();
+
+$currency_id = $currency->getCurrencyId('USD');
+$language = $language->getLanguage('en-us');
+
 return [
     'company_name' => [
         "title" => "Company Name",
@@ -42,5 +51,31 @@ return [
         "type" => "text",
         "value" => "Room 411B 5th Floor, Jewel Plaza Kasarani, Nairobi.",
         "category" => "Company",
+    ],
+    'default_currency' => [
+        "title" => "Default Currency",
+        "type" => "recordpicker",
+        "value" => $currency_id,
+        "comp_url" => "core/admin/currency/list.vue",
+        "setting" => [
+            'path_param' => ["core", "currency"],
+            'fields' => ['name', 'code'],
+            'template' => '[name] ([code])',
+
+        ],
+        "category" => "System",
+    ],
+    'default_language' => [
+        "title" => "Default Language",
+        "type" => "recordpicker",
+        "value" => $language->id,
+        "comp_url" => "core/admin/language/list.vue",
+        "setting" => [
+            'path_param' => ["core", "language"],
+            'fields' => ['name', 'slug'],
+            'template' => '[name] ([slug])',
+
+        ],
+        "category" => "System",
     ],
 ];

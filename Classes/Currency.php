@@ -13,7 +13,7 @@ class Currency
     {
         $currency = $this->getCurrency('USD');
 
-        $currency_id = Config::get('account.sales_default_currency');
+        $currency_id = Config::get('core.default_currency');
         if ($currency_id) {
             $currency = $this->getCurrencyById($currency_id);
         }

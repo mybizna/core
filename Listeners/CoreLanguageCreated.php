@@ -27,15 +27,15 @@ class CoreLanguageCreated
         $table_name = $event->table_name;
 
         if ($table_name == 'core_language') {
-            
+
             $language = $event->model;
-            
-            $translations = LanguageTranslation::where('language', 'en-us')->get();
-            
+
+            $translations = LanguageTranslation::where('language_id', $language->id)->get();
+
             foreach ($translations as $key => $translation) {
                 LanguageTranslation::create([
                     'slug' => $translation->slug,
-                    'language' => $language->slug,
+                    'language_id' => $language->id,
                     'phrase' => $translation->phrase,
                 ]);
             }

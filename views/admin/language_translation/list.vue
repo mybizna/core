@@ -6,10 +6,10 @@
             <th-render>Language</th-render>
             <th-render>Phrase</th-render>
         </template>
-      
+
         <template #body="{ item }">
             <td>{{ item.slug }}</td>
-            <td>{{ item.language }}</td>
+            <td>{{ item.language_id__core_language__name }} ({{ item.language_id__core_language__slug }})</td>
             <td>{{ item.phrase }}</td>
         </template>
 
@@ -20,7 +20,9 @@
 export default {
     data() {
         return {
-            table_fields: ['slug', 'language', 'phrase'],
+            table_fields: ['slug', 'phrase',
+                "language_id__core_language__name", "language_id__core_language__slug"
+            ],
         };
     },
 };
