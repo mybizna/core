@@ -10,9 +10,12 @@ class LanguageTranslation
 
     public function data(Datasetter $datasetter)
     {
+
+        $language_id = DB::table('core_language')->where( 'slug', 'en-us')->value('id');
+
         $datasetter->add_data('core', 'language_translation', 'slug', [
             "slug" => "site-title",
-            "language" => "en-us",
+            "language_id" => $language_id ,
             "phrase" => "ERP",
         ]);
     }

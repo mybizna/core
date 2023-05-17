@@ -6,13 +6,13 @@ use Modules\Base\Classes\Datasetter;
 
 class Language
 {
-    public $ordering = 5;
+    public $ordering = 3;
 
     public function data(Datasetter $datasetter)
     {
         $datasetter->add_data('core', 'language', 'slug', [
             "name" => "English-US",
-            "slug" => "EN-US",
+            "slug" => "en-us",
         ]);
     }
 }
