@@ -2,10 +2,10 @@
 
 namespace Modules\Core\Entities;
 
-use Modules\Base\Entities\BaseModel;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Classes\Migration;
+use Modules\Base\Entities\BaseModel;
 
 class Currency extends BaseModel
 {
@@ -16,7 +16,7 @@ class Currency extends BaseModel
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     protected $fillable = [
-     "name", "code", "symbol", "rate",'is_system',
+        "name", "code", "symbol", "rate", 'is_system',
         "buying", "selling", "published", "is_fetched",
     ];
 
@@ -25,8 +25,6 @@ class Currency extends BaseModel
      *
      * @var string
      */
-
-
 
     /**
      * Get the user that created the record.
@@ -82,14 +80,6 @@ class Currency extends BaseModel
         $table->integer('is_fetched')->nullable()->default(0);
         $table->tinyInteger('is_system')->default(false);
     }
-
-    public function post_migration(Blueprint $table)
-    {
-        if (Migration::checkKeyExist('core_currency', 'country_id')) {
-            $table->foreign('country_id')->references('id')->on('core_country')->nullOnDelete();
-        }
-    }
-
 
     public function deleteRecord($id)
     {

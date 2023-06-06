@@ -38,8 +38,6 @@ class LanguageTranslation extends BaseModel
 
     public function post_migration(Blueprint $table)
     {
-        if (Migration::checkKeyExist('core_language_translation', 'language_id')) {
-            $table->foreign('language_id')->references('id')->on('core_language')->nullOnDelete();
-        }
+        Migration::addForeign($table, 'core_language', 'language_id');
     }
 }

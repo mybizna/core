@@ -73,15 +73,13 @@ class Timezone extends BaseModel
     {
         $table->increments('id');
         $table->string('name', 255);
-        $table->unsignedInteger('country_id')->nullable()->default(null);
+        $table->foreignId('country_id')->nullable()->default(null);
         $table->tinyInteger('is_system')->default(false);
     }
 
     public function post_migration(Blueprint $table)
     {
-        if (Migration::checkKeyExist('core_timezone', 'country_id')) {
-            $table->foreign('country_id')->references('id')->on('core_country')->nullOnDelete();
-        }
+        Migration::addForeign($table, 'core_country', 'country_id');
     }
 
     public function deleteRecord($id)
