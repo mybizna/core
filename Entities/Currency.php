@@ -78,7 +78,7 @@ class Currency extends BaseModel
         $table->decimal('selling', 11, 2)->nullable()->default(null);
         $table->integer('published')->nullable()->default(0);
         $table->integer('is_fetched')->nullable()->default(0);
-        $table->tinyInteger('is_system')->default(false);
+        $table->tinyInteger('is_system')->nullable()->default(0);
     }
 
     public function deleteRecord($id)

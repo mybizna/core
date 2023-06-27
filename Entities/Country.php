@@ -36,7 +36,7 @@ class Country extends BaseModel
         $table->string('code3', 3)->nullable()->default(null);
         $table->string('latitude', 255)->nullable()->default(null);
         $table->string('longitude', 255)->nullable()->default(null);
-        $table->tinyInteger('is_system')->default(false);
+        $table->tinyInteger('is_system')->nullable()->default(0);
     }
 
     public function deleteRecord($id)

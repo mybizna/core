@@ -35,9 +35,9 @@ class Notification extends BaseModel
         $table->string('short');
         $table->string('medium');
         $table->text('lengthy');
-        $table->tinyInteger('enable_short')->default(true);
-        $table->tinyInteger('enable_medium')->default(false);
-        $table->tinyInteger('enable_lengthy')->default(true);
-        $table->tinyInteger('published')->default(true);
+        $table->tinyInteger('enable_short')->nullable()->default(1);
+        $table->tinyInteger('enable_medium')->nullable()->default(0);
+        $table->tinyInteger('enable_lengthy')->nullable()->default(1);
+        $table->tinyInteger('published')->nullable()->default(1);
     }
 }

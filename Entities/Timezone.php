@@ -74,7 +74,7 @@ class Timezone extends BaseModel
         $table->increments('id');
         $table->string('name', 255);
         $table->foreignId('country_id')->nullable()->default(null);
-        $table->tinyInteger('is_system')->default(false);
+        $table->tinyInteger('is_system')->nullable()->default(0);
     }
 
     public function post_migration(Blueprint $table)
