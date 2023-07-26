@@ -5,6 +5,9 @@ namespace Modules\Core\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 
+use Modules\Core\Classes\Views\ListTable;
+use Modules\Core\Classes\Views\FormBuilder;
+
 class CompanyLocation extends BaseModel
 {
 
@@ -24,6 +27,58 @@ class CompanyLocation extends BaseModel
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+
+    public function listTable(){
+        // listing view fields
+        $fields = new ListTable();
+
+        $fields->name('company_id')->type('recordpicker')->table('core_company')->ordering(true);
+        $fields->name('name')->type('text')->ordering(true);
+        $fields->name('address_1')->type('text')->ordering(true);
+        $fields->name('address_2')->type('text')->ordering(true);
+        $fields->name('city')->type('text')->ordering(true);
+        $fields->name('state')->type('text')->ordering(true);
+        $fields->name('zip')->type('text')->ordering(true);
+        $fields->name('country')->type('text')->ordering(true);
+        $fields->name('fax')->type('text')->ordering(true);
+        $fields->name('phone')->type('text')->ordering(true);
+
+        return $fields;
+
+    }
+    
+    public function formBuilder(){
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('company_id')->type('recordpicker')->table('core_company')->group('w-1/2');
+        $fields->name('name')->type('text')->group('w-1/2');
+        $fields->name('address_1')->type('text')->group('w-1/2');
+        $fields->name('address_2')->type('text')->group('w-1/2');
+        $fields->name('city')->type('text')->group('w-1/2');
+        $fields->name('state')->type('text')->group('w-1/2');
+        $fields->name('zip')->type('text')->group('w-1/2');
+        $fields->name('country')->type('text')->group('w-1/2');
+        $fields->name('fax')->type('text')->group('w-1/2');
+        $fields->name('phone')->type('text')->group('w-1/2');
+
+
+        return $fields;
+
+    }
+
+    public function filter(){
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('name')->type('text')->group('w-1/6');
+        $fields->name('city')->type('text')->group('w-1/6');
+        $fields->name('state')->type('text')->group('w-1/6');
+        $fields->name('country')->type('text')->group('w-1/6');
+
+        return $fields;
+
+    }
     /**
      * List of fields for managing postings.
      *
