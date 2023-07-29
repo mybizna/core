@@ -2,11 +2,9 @@
 
 namespace Modules\Core\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Schema\Blueprint;
-use Wildside\Userstamps\Userstamps;
+use Modules\Base\Entities\BaseModel;
 
 class DataMigrated extends BaseModel
 {
@@ -18,6 +16,10 @@ class DataMigrated extends BaseModel
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+    /**
+     * The fields that can be filled
+     * @var array<string>
+     */
     protected $fillable = [
         'module',
         'table_name',
@@ -34,7 +36,11 @@ class DataMigrated extends BaseModel
      */
     protected $table = 'core_data_migrated';
 
-    public $migrationDependancy = [];
+    /**
+     * List of tables names that are need in this model during migration.
+     * @var array<string>
+     */
+    public array $migrationDependancy = [];
 
     /**
      * Get the user that created the record.
@@ -71,7 +77,7 @@ class DataMigrated extends BaseModel
         return $query->orderBy('created_at', 'DESC');
     }
     /**
-     * List of fields for managing postings.
+     * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void

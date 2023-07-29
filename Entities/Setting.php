@@ -2,21 +2,30 @@
 
 namespace Modules\Core\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
-
-use Modules\Core\Classes\Views\ListTable;
-use Modules\Core\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\ListTable;
+use Modules\Base\Entities\BaseModel;
 
 class Setting extends BaseModel
 {
-
+    /**
+     * The table associated with the model.
+     * @var string
+     */
     protected $table = "core_setting";
 
-    public $migrationDependancy = [];
+    /**
+     * List of tables names that are need in this model.
+     * @var array<string>
+     */
+    public array $migrationDependancy = [];
 
+    /**
+     * The fields that can be filled
+     * @var array<string>
+     */
     protected $fillable = ['module', 'model', 'name', 'type', 'value'];
-
 
     /**
      * The attributes that should be mutated to dates.
@@ -25,8 +34,8 @@ class Setting extends BaseModel
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-
-    public function listTable(){
+    public function listTable(): ListTable
+    {
         // listing view fields
         $fields = new ListTable();
 
@@ -36,12 +45,12 @@ class Setting extends BaseModel
         $fields->name('type')->type('text')->ordering(true);
         $fields->name('value')->type('text')->ordering(true);
 
-
         return $fields;
 
     }
-    
-    public function formBuilder(){
+
+    public function formBuilder(): FormBuilder
+    {
         // listing view fields
         $fields = new FormBuilder();
 
@@ -55,7 +64,8 @@ class Setting extends BaseModel
 
     }
 
-    public function filter(){
+    public function filter(): FormBuilder
+    {
         // listing view fields
         $fields = new FormBuilder();
 
@@ -69,7 +79,7 @@ class Setting extends BaseModel
 
     }
     /**
-     * List of fields for managing postings.
+     * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void

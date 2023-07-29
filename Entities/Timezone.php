@@ -7,9 +7,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Classes\Migration;
 use Modules\Base\Entities\BaseModel;
 
-use Modules\Core\Classes\Views\ListTable;
-use Modules\Core\Classes\Views\FormBuilder;
-
 class Timezone extends BaseModel
 {
 
@@ -20,9 +17,17 @@ class Timezone extends BaseModel
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-    public $migrationDependancy = ['core_country'];
+    /**
+     * List of tables names that are need in this model during migration.
+     * @var array<string>
+     */
+    public array $migrationDependancy = ['core_country'];
 
-    protected $fillable = ["name", "country_id", "is_system",];
+    /**
+     * The fields that can be filled
+     * @var array<string>
+     */
+    protected $fillable = ["name", "country_id", "is_system"];
 
     /**
      * The table associated with the model.
@@ -67,7 +72,7 @@ class Timezone extends BaseModel
     }
 
     /**
-     * List of fields for managing postings.
+     * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void

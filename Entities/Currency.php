@@ -7,17 +7,30 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Classes\Migration;
 use Modules\Base\Entities\BaseModel;
 
-use Modules\Core\Classes\Views\ListTable;
-use Modules\Core\Classes\Views\FormBuilder;
-
 class Currency extends BaseModel
 {
+    /**
+     * The table associated with the model.
+     * @var string
+     */
     protected $table = 'core_currency';
 
-    public $migrationDependancy = [];
+    /**
+     * List of tables names that are need in this model during migration.
+     * @var array<string>
+     */
+    public array $migrationDependancy = [];
 
+    /**
+     * The attributes that should be mutated to dates.
+     * @var array<string>
+     */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+    /**
+     * The fields that can be filled
+     * @var array<string>
+     */
     protected $fillable = [
         "name", "code", "symbol", "rate", 'is_system',
         "buying", "selling", "published", "is_fetched",
@@ -65,7 +78,7 @@ class Currency extends BaseModel
     }
 
     /**
-     * List of fields for managing postings.
+     * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void

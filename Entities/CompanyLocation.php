@@ -2,22 +2,32 @@
 
 namespace Modules\Core\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
-
-use Modules\Core\Classes\Views\ListTable;
-use Modules\Core\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\ListTable;
+use Modules\Base\Entities\BaseModel;
 
 class CompanyLocation extends BaseModel
 {
-
+    /**
+     * The table associated with the model.
+     * @var string
+     */
     protected $table = "core_company_location";
 
-    public $migrationDependancy = [];
-
+    /**
+     * List of tables names that are need in this model during migration.
+     * @var array<string>
+     */
+    public array $migrationDependancy = [];
+    
+    /**
+     * The fields that can be filled
+     * @var array<string>
+     */
     protected $fillable = [
         'company_id', 'name', 'address_1', 'address_2', 'city', 'state',
-        'zip', 'country', 'fax', 'phone'
+        'zip', 'country', 'fax', 'phone',
     ];
 
     /**
@@ -27,8 +37,8 @@ class CompanyLocation extends BaseModel
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-
-    public function listTable(){
+    public function listTable(): ListTable
+    {
         // listing view fields
         $fields = new ListTable();
 
@@ -46,8 +56,9 @@ class CompanyLocation extends BaseModel
         return $fields;
 
     }
-    
-    public function formBuilder(){
+
+    public function formBuilder(): FormBuilder
+    {
         // listing view fields
         $fields = new FormBuilder();
 
@@ -62,12 +73,12 @@ class CompanyLocation extends BaseModel
         $fields->name('fax')->type('text')->group('w-1/2');
         $fields->name('phone')->type('text')->group('w-1/2');
 
-
         return $fields;
 
     }
 
-    public function filter(){
+    public function filter(): FormBuilder
+    {
         // listing view fields
         $fields = new FormBuilder();
 
@@ -80,7 +91,7 @@ class CompanyLocation extends BaseModel
 
     }
     /**
-     * List of fields for managing postings.
+     * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void
