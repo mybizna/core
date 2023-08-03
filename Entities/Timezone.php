@@ -13,18 +13,20 @@ class Timezone extends BaseModel
     /**
      * The attributes that should be mutated to dates.
      *
-     * @var array
+     * @var array <string>
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = ['core_country'];
 
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = ["name", "country_id", "is_system"];
@@ -77,7 +79,7 @@ class Timezone extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
         $table->increments('id');
         $table->string('name', 255);
@@ -85,11 +87,25 @@ class Timezone extends BaseModel
         $table->tinyInteger('is_system')->nullable()->default(0);
     }
 
-    public function post_migration(Blueprint $table)
+    /**
+     * Handle post migration processes for adding foreign keys.
+     *
+     * @param Blueprint $table
+     *
+     * @return void
+     */
+    public function post_migration(Blueprint $table): void
     {
         Migration::addForeign($table, 'core_country', 'country_id');
     }
 
+    /**
+     * Function for deleting a record.
+     *
+     * @param int $id
+     *
+     * @return array
+     */
     public function deleteRecord($id)
     {
 
@@ -106,7 +122,7 @@ class Timezone extends BaseModel
             ];
         }
 
-        parent::deleteRecord($id);
+        return parent::deleteRecord($id);
 
     }
 }

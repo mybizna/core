@@ -9,6 +9,7 @@ class LanguageTranslation
 {
     /**
      * Set ordering of the Class to be migrated.
+     * 
      * @var int
      */
     public $ordering = 5;

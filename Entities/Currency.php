@@ -11,24 +11,28 @@ class Currency extends BaseModel
 {
     /**
      * The table associated with the model.
+     *
      * @var string
      */
     protected $table = 'core_currency';
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = [];
 
     /**
      * The attributes that should be mutated to dates.
+     *
      * @var array<string>
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = [
@@ -83,7 +87,7 @@ class Currency extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
         $table->increments('id');
         $table->string('name', 255);
@@ -97,6 +101,13 @@ class Currency extends BaseModel
         $table->tinyInteger('is_system')->nullable()->default(0);
     }
 
+    /**
+     * Function for deleting a record.
+     *
+     * @param int $id
+     *
+     * @return array
+     */
     public function deleteRecord($id)
     {
 
@@ -113,7 +124,7 @@ class Currency extends BaseModel
             ];
         }
 
-        parent::deleteRecord($id);
+        return parent::deleteRecord($id);
 
     }
 }
