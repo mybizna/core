@@ -31,6 +31,13 @@ class Country extends BaseModel
     protected $fillable = ['name', 'code', 'code3', 'latitude', 'longitude', 'is_system'];
 
     /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['name', 'code'];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array <string>

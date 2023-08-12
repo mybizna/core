@@ -30,6 +30,14 @@ class Timezone extends BaseModel
      * @var array<string>
      */
     protected $fillable = ["name", "country_id", "is_system"];
+      
+    
+    /**
+    * The fields that are to be render when performing relationship queries.
+    *
+    * @var array<string>
+    */
+   public $rec_names = ['name'];
 
     /**
      * The table associated with the model.

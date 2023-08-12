@@ -32,6 +32,13 @@ class LanguageTranslation extends BaseModel
     protected $fillable = ['slug', 'language_id', 'phrase'];
 
     /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['slug'];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array <string>
@@ -58,7 +65,7 @@ class LanguageTranslation extends BaseModel
 
     /**
      * Function for defining list of fields in form view.
-     * 
+     *
      * @return FormBuilder
      */
     public function formBuilder(): FormBuilder
@@ -76,7 +83,7 @@ class LanguageTranslation extends BaseModel
 
     /**
      * Function for defining list of fields in filter view.
-     * 
+     *
      * @return FormBuilder
      */
     public function filter(): FormBuilder
@@ -97,7 +104,7 @@ class LanguageTranslation extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table):void
+    public function migration(Blueprint $table): void
     {
         $table->increments('id');
         $table->string('slug');
@@ -112,7 +119,7 @@ class LanguageTranslation extends BaseModel
      *
      * @return void
      */
-    public function post_migration(Blueprint $table):void
+    public function post_migration(Blueprint $table): void
     {
         Migration::addForeign($table, 'core_language', 'language_id');
     }

@@ -41,6 +41,13 @@ class Currency extends BaseModel
     ];
 
     /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['name', 'code'];
+
+    /**
      * The table associated with the model.
      *
      * @var string

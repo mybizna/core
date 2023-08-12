@@ -11,24 +11,31 @@ class Setting extends BaseModel
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = "core_setting";
 
     /**
      * List of tables names that are need in this model.
-     * 
+     *
      * @var array<string>
      */
     public array $migrationDependancy = [];
 
     /**
      * The fields that can be filled
-     * 
+     *
      * @var array<string>
      */
     protected $fillable = ['module', 'model', 'name', 'type', 'value'];
+
+    /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['name'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -39,7 +46,7 @@ class Setting extends BaseModel
 
     /**
      * Function for defining list of fields in table view.
-     * 
+     *
      * @return ListTable
      */
     public function listTable(): ListTable
@@ -59,7 +66,7 @@ class Setting extends BaseModel
 
     /**
      * Function for defining list of fields in form view.
-     * 
+     *
      * @return FormBuilder
      */
     public function formBuilder(): FormBuilder
@@ -79,7 +86,7 @@ class Setting extends BaseModel
 
     /**
      * Function for defining list of fields in filter view.
-     * 
+     *
      * @return FormBuilder
      */
     public function filter(): FormBuilder

@@ -31,6 +31,13 @@ class Language extends BaseModel
     protected $fillable = ['name', 'slug'];
 
     /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['name'];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array <string>
@@ -56,7 +63,7 @@ class Language extends BaseModel
 
     /**
      * Function for defining list of fields in form view.
-     * 
+     *
      * @return FormBuilder
      */
     public function formBuilder(): FormBuilder
@@ -73,7 +80,7 @@ class Language extends BaseModel
 
     /**
      * Function for defining list of fields in filter view.
-     * 
+     *
      * @return FormBuilder
      */
     public function filter(): FormBuilder

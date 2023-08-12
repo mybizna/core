@@ -31,6 +31,13 @@ class DataMigrated extends BaseModel
     ];
 
     /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['array_key'];
+
+    /**
      * The table associated with the model.
      *
      * @var string
