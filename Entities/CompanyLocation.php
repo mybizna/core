@@ -57,7 +57,7 @@ class CompanyLocation extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('company_id')->type('recordpicker')->table('core_company')->ordering(true);
+        $fields->name('company_id')->type('recordpicker')->table(['core', 'company'])->ordering(true);
         $fields->name('name')->type('text')->ordering(true);
         $fields->name('address_1')->type('text')->ordering(true);
         $fields->name('address_2')->type('text')->ordering(true);
@@ -82,7 +82,7 @@ class CompanyLocation extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('company_id')->type('recordpicker')->table('core_company')->group('w-1/2');
+        $fields->name('company_id')->type('recordpicker')->table(['core', 'company'])->group('w-1/2');
         $fields->name('name')->type('text')->group('w-1/2');
         $fields->name('address_1')->type('text')->group('w-1/2');
         $fields->name('address_2')->type('text')->group('w-1/2');
