@@ -91,14 +91,14 @@ class DataMigrated extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table): void
+    public function fields(Blueprint $table): void
     {
-        $table->bigIncrements('id');
-        $table->string('module', 255);
-        $table->string('table_name', 255);
-        $table->string('array_key', 255);
-        $table->string('hash', 255);
-        $table->integer('item_id')->nullable()->default(null);
-        $table->integer('counter')->nullable()->default(0);
+        $this->fields->bigIncrements('id')->html('text');
+        $this->fields->string('module', 255)->html('text');
+        $this->fields->string('table_name', 255)->html('text');
+        $this->fields->string('array_key', 255)->html('text');
+        $this->fields->string('hash', 255)->html('text');
+        $this->fields->integer('item_id')->nullable()->default(null)->html('text');
+        $this->fields->integer('counter')->nullable()->default(0)->html('text');
     }
 }

@@ -94,18 +94,18 @@ class Currency extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table): void
+    public function fields(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->string('name', 255);
-        $table->string('code', 255)->nullable()->default(null);
-        $table->string('symbol', 255)->nullable()->default(null);
-        $table->decimal('rate', 11, 2)->nullable()->default(null);
-        $table->decimal('buying', 11, 2)->nullable()->default(null);
-        $table->decimal('selling', 11, 2)->nullable()->default(null);
-        $table->integer('published')->nullable()->default(0);
-        $table->integer('is_fetched')->nullable()->default(0);
-        $table->tinyInteger('is_system')->nullable()->default(0);
+        $this->fields->increments('id')->html('text');
+        $this->fields->string('name', 255)->html('text');
+        $this->fields->string('code', 255)->nullable()->default(null)->html('text');
+        $this->fields->string('symbol', 255)->nullable()->default(null)->html('text');
+        $this->fields->decimal('rate', 11, 2)->nullable()->default(null)->html('text');
+        $this->fields->decimal('buying', 11, 2)->nullable()->default(null)->html('text');
+        $this->fields->decimal('selling', 11, 2)->nullable()->default(null)->html('text');
+        $this->fields->integer('published')->nullable()->default(0)->html('switch');
+        $this->fields->integer('is_fetched')->nullable()->default(0)->html('switch');
+        $this->fields->tinyInteger('is_system')->nullable()->default(0)->html('switch');
     }
 
     /**

@@ -30,14 +30,13 @@ class Timezone extends BaseModel
      * @var array<string>
      */
     protected $fillable = ["name", "country_id", "is_system"];
-      
-    
+
     /**
-    * The fields that are to be render when performing relationship queries.
-    *
-    * @var array<string>
-    */
-   public $rec_names = ['name'];
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['name'];
 
     /**
      * The table associated with the model.
@@ -87,24 +86,12 @@ class Timezone extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table): void
+    public function fields(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->string('name', 255);
-        $table->foreignId('country_id')->nullable()->default(null);
-        $table->tinyInteger('is_system')->nullable()->default(0);
-    }
-
-    /**
-     * Handle post migration processes for adding foreign keys.
-     *
-     * @param Blueprint $table
-     *
-     * @return void
-     */
-    public function post_migration(Blueprint $table): void
-    {
-        Migration::addForeign($table, 'core_country', 'country_id');
+        $this->fields->increments('id')->html('text');
+        $this->fields->string('name', 255)->html('text');
+        $this->fields->foreignId('country_id')->nullable()->default(null)->html('recordpicker')->relation(['core', 'country']);
+        $this->fields->tinyInteger('is_system')->nullable()->default(0)->html('switch');
     }
 
     /**
