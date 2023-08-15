@@ -93,6 +93,8 @@ class DataMigrated extends BaseModel
      */
     public function fields(Blueprint $table): void
     {
+        $this->fields = $table ?? new Blueprint($this->table);
+        
         $this->fields->bigIncrements('id')->html('text');
         $this->fields->string('module', 255)->html('text');
         $this->fields->string('table_name', 255)->html('text');

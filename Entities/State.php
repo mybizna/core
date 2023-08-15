@@ -51,6 +51,8 @@ class State extends BaseModel
      */
     public function fields(Blueprint $table): void
     {
+        $this->fields = $table ?? new Blueprint($this->table);
+        
         $this->fields->increments('id')->html('text');
         $this->fields->string('name')->html('text');
         $this->fields->string('country_code', 2)->html('text');
