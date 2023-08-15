@@ -56,7 +56,7 @@ class CompanyLocation extends BaseModel
         $this->fields = $table ?? new Blueprint($this->table);
 
         $this->fields->increments('id');
-        $this->fields->unsignedInteger('company_id')->nullable()->index('company_id')->html('recordpicker')->table(['core', 'company']);
+        $this->fields->unsignedInteger('company_id')->nullable()->index('company_id')->html('recordpicker')->relation(['core', 'company']);
         $this->fields->string('name')->nullable()->html('text');
         $this->fields->string('address_1')->nullable()->html('text');
         $this->fields->string('address_2')->nullable()->html('text');
