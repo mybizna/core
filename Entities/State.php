@@ -49,10 +49,10 @@ class State extends BaseModel
      *
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->string('name')->html('text');
         $this->fields->string('country_code', 2)->html('text');
@@ -62,6 +62,19 @@ class State extends BaseModel
         $this->fields->string('latitude', 255)->nullable()->default(null)->html('text');
         $this->fields->string('longitude', 255)->nullable()->default(null)->html('text');
         $this->fields->boolean('is_system')->default(true)->html('switch');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'],
+            'filter' => ['name', 'country_code', 'type', 'item_id', 'state_code'],
+        ];
+
+        return $structure;
     }
 
     /**

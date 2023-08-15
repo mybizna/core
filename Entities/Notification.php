@@ -49,10 +49,10 @@ class Notification extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->string('slug')->html('text');
         $this->fields->string('short')->html('text');
@@ -62,6 +62,19 @@ class Notification extends BaseModel
         $this->fields->tinyInteger('enable_medium')->nullable()->default(0)->html('switch');
         $this->fields->tinyInteger('enable_lengthy')->nullable()->default(1)->html('switch');
         $this->fields->tinyInteger('published')->nullable()->default(1)->html('switch');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'],
+            'filter' => ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'],
+        ];
+
+        return $structure;
     }
 
 }

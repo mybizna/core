@@ -51,10 +51,10 @@ class CompanyLocation extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id');
         $this->fields->unsignedInteger('company_id')->nullable()->index('company_id')->html('recordpicker')->table(['core', 'company']);
         $this->fields->string('name')->nullable()->html('text');
@@ -66,6 +66,19 @@ class CompanyLocation extends BaseModel
         $this->fields->string('country', 5)->nullable()->html('text');
         $this->fields->string('fax', 20)->nullable()->html('text');
         $this->fields->string('phone', 20)->nullable()->html('text');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['company_id', 'name', 'address_1', 'city', 'state', 'country', 'phone'],
+            'filter' => ['company_id', 'name', 'city', 'state', 'country'],
+        ];
+
+        return $structure;
     }
 
 }
