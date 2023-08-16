@@ -68,6 +68,12 @@ class Country extends BaseModel
     {
         $structure = [
             'table' => ['name', 'code', 'code3', 'latitude', 'longitude', 'is_system'],
+            'form' => [
+                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
+                ['label' => 'Code', 'class' => 'w-1/6', 'fields' => ['code', 'code3']],
+                ['label' => 'Geo-Code', 'class' => 'w-1/6', 'fields' => ['latitude', 'longitude']],
+                ['label' => 'Setting', 'class' => 'w-1/6', 'fields' => ['is_system']],
+            ],
             'filter' => ['name', 'code', 'code3'],
         ];
 

@@ -71,6 +71,11 @@ class State extends BaseModel
     {
         $structure = [
             'table' => ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'],
+            'form' => [
+                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
+                ['label' => 'State', 'class' => 'w-1/6', 'fields' => ['country_code', 'type', 'item_id', 'state_code']],
+                ['label' => 'Location', 'class' => 'w-1/6', 'fields' => ['latitude', 'longitude', 'is_system']],
+            ],
             'filter' => ['name', 'country_code', 'type', 'item_id', 'state_code'],
         ];
 

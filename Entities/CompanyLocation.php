@@ -75,6 +75,11 @@ class CompanyLocation extends BaseModel
     {
         $structure = [
             'table' => ['company_id', 'name', 'address_1', 'city', 'state', 'country', 'phone'],
+            'form' => [
+                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
+                ['label' => 'Address', 'class' => 'w-1/6', 'fields' => ['address_1', 'city', 'state', 'country']],
+                ['label' => 'Setting', 'class' => 'w-1/6', 'fields' => ['company_id', 'phone']],
+            ],
             'filter' => ['company_id', 'name', 'city', 'state', 'country'],
         ];
 
