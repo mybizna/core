@@ -69,16 +69,14 @@ class Notification extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'],
-            'form' => [
-                ['label' => 'Short', 'class' => 'w-full', 'fields' => ['short']],
-                ['label' => 'Medium', 'class' => 'w-1/6', 'fields' => ['medium']],
-                ['label' => 'Setting', 'class' => 'w-1/6', 'fields' => ['enable_short', 'enable_medium', 'enable_lengthy', 'published']],
-                ['label' => 'Lengthy', 'class' => 'w-full', 'fields' => ['lengthy']],
-            ],
-            'filter' => ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'],
+        $structure['table'] = ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'];
+        $structure['form'] = [
+            ['label' => 'Short', 'class' => 'col-span-full', 'fields' => ['short']],
+            ['label' => 'Medium', 'class' => 'col-span-6', 'fields' => ['medium']],
+            ['label' => 'Setting', 'class' => 'col-span-6', 'fields' => ['enable_short', 'enable_medium', 'enable_lengthy', 'published']],
+            ['label' => 'Lengthy', 'class' => 'col-span-full', 'fields' => ['lengthy']],
         ];
+        $structure['filter'] = ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'];
 
         return $structure;
     }

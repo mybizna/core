@@ -101,10 +101,8 @@ class Timezone extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ["name", "country_id", "is_system"],
-            'filter' => ["name", "is_system"],
-        ];
+        $structure['table'] = ["name", "country_id", "is_system"];
+        $structure['filter'] = ["name", "is_system"];
 
         return $structure;
     }

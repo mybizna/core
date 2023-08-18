@@ -66,16 +66,14 @@ class Country extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['name', 'code', 'code3', 'latitude', 'longitude', 'is_system'],
-            'form' => [
-                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
-                ['label' => 'Code', 'class' => 'w-1/6', 'fields' => ['code', 'code3']],
-                ['label' => 'Geo-Code', 'class' => 'w-1/6', 'fields' => ['latitude', 'longitude']],
-                ['label' => 'Setting', 'class' => 'w-1/6', 'fields' => ['is_system']],
-            ],
-            'filter' => ['name', 'code', 'code3'],
+        $structure['table'] = ['name', 'code', 'code3', 'latitude', 'longitude', 'is_system'];
+        $structure['form'] = [
+            ['label' => 'Name', 'class' => 'col-span-full', 'fields' => ['name']],
+            ['label' => 'Code', 'class' => 'col-span-6', 'fields' => ['code', 'code3']],
+            ['label' => 'Geo-Code', 'class' => 'col-span-6', 'fields' => ['latitude', 'longitude']],
+            ['label' => 'Setting', 'class' => 'col-span-6', 'fields' => ['is_system']],
         ];
+        $structure['filter'] = ['name', 'code', 'code3'];
 
         return $structure;
     }

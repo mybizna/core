@@ -69,15 +69,13 @@ class State extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'],
-            'form' => [
-                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
-                ['label' => 'State', 'class' => 'w-1/6', 'fields' => ['country_code', 'type', 'item_id', 'state_code']],
-                ['label' => 'Location', 'class' => 'w-1/6', 'fields' => ['latitude', 'longitude', 'is_system']],
-            ],
-            'filter' => ['name', 'country_code', 'type', 'item_id', 'state_code'],
+        $structure['table'] = ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'];
+        $structure['form'] = [
+            ['label' => 'Name', 'class' => 'col-span-full', 'fields' => ['name']],
+            ['label' => 'State', 'class' => 'col-span-6', 'fields' => ['country_code', 'type', 'item_id', 'state_code']],
+            ['label' => 'Location', 'class' => 'col-span-6', 'fields' => ['latitude', 'longitude', 'is_system']],
         ];
+        $structure['filter'] = ['name', 'country_code', 'type', 'item_id', 'state_code'];
 
         return $structure;
     }
