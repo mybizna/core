@@ -6,8 +6,10 @@ use Modules\Core\Classes\Language;
 $currency = new Currency();
 $language = new Language();
 
-$currency_id = $currency->getCurrencyId('USD');
-$language = $language->getLanguage('en-us');
+$currency_id = @$currency->getCurrencyId('USD');
+$language = @$language->getLanguage('en-us');
+
+$language_id = ($language) ? $language->id : 1;
 
 return [
     'company_name' => [
@@ -68,7 +70,7 @@ return [
     'default_language' => [
         "title" => "Default Language",
         "type" => "recordpicker",
-        "value" => $language->id,
+        "value" => $language_id,
         "comp_url" => "core/admin/language/list.vue",
         "setting" => [
             'path_param' => ["core", "language"],
