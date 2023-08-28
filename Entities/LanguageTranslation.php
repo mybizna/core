@@ -53,7 +53,7 @@ class LanguageTranslation extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('slug')->html('text');
         $this->fields->integer('language_id')->html('recordpicker')->relation(['core', 'language']);
         $this->fields->string('phrase')->html('text');

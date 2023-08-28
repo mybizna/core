@@ -53,7 +53,7 @@ class State extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('name')->html('text');
         $this->fields->string('country_code', 2)->html('text');
         $this->fields->string('type', 50)->nullable()->html('text');

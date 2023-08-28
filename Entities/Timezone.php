@@ -90,7 +90,7 @@ class Timezone extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('name', 255)->html('text');
         $this->fields->foreignId('country_id')->nullable()->default(null)->html('recordpicker')->relation(['core', 'country']);
         $this->fields->tinyInteger('is_system')->nullable()->default(0)->html('switch');

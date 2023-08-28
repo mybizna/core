@@ -98,7 +98,7 @@ class Currency extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('name', 255)->html('text');
         $this->fields->string('code', 255)->nullable()->default(null)->html('text');
         $this->fields->string('symbol', 255)->nullable()->default(null)->html('text');

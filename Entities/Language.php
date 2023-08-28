@@ -52,7 +52,7 @@ class Language extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('name')->html('text');
         $this->fields->string('slug')->html('text');
     }
