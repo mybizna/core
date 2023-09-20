@@ -7,7 +7,7 @@ $this->add_module_info("core", [
     'description' => 'Core',
     'icon' => 'fas fa-receipt',
     'path' => '/core/admin/country',
-    'class_str'=> 'text-warning border-warning'
+    'class_str' => 'text-warning border-warning',
 ]);
 
 $this->add_menu("core", "country", "Country", "/core/admin/country", "fas fa-cogs", 5);
@@ -22,3 +22,7 @@ $this->add_menu("core", "language_translation", "Language Translation", "/core/a
 $this->add_menu("core", "setting", "Setting", "/core/admin/setting", "fas fa-cogs", 5);
 $this->add_submenu("core", "setting", "Setting List", "/core/admin/setting", 10);
 $this->add_submenu("core", "setting", " Setting Tabs", "/core/admin/setting/manage", 10);
+
+$this->group('frontend', function () {
+    $this->add_menu("core", "country", "Country", "/core/front/country", "fas fa-cogs", 5);
+});
