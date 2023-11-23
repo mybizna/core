@@ -1,4 +1,8 @@
 <template>
+    <Vueform>
+        <TextElement name="hello_world" label="Hello" placeholder="World" />
+    </Vueform>
+
     <edit-render :path_param="['core', 'setting']" :model="model" passed_form_url="setting/savedata">
 
         <div class="d-flex align-items-start">
@@ -21,12 +25,14 @@
                         <div v-for="(subsetting, ss_index) in setting.settings" v-bind:key="ss_index">
                             <h3 class="my-3 border-b-2 border-indigo-200 ">{{ subsetting.title }}</h3>
                             <template v-for="(field, ssl_index) in subsetting.list" v-bind:key="ssl_index">
+
                                 <FormKit v-if="field.params.type == 'recordpicker'" :label="field.params.title"
                                     :id="field.params.name" :type="field.params.type" :comp_url="field.params.comp_url"
                                     :setting="field.params.setting" v-model="field.params.value" />
 
                                 <FormKit v-else :label="field.params.title" :id="field.params.name"
                                     :type="field.params.type" v-model="field.params.value" />
+
 
                             </template>
                         </div>
@@ -48,6 +54,7 @@ export default {
         }
     },
     created() {
+        alert('created');
         this.fetchData();
     },
 
@@ -73,6 +80,7 @@ export default {
                             console.log(' ');
                             console.log(' ');
                             console.log(arr_tabs);
+                            console.log(t.model);
                             console.log(t.model.settings);
 
 
