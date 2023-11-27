@@ -50,10 +50,11 @@
                                         :description="field.params.description" :info="field.params.info"
                                         :items="field.params.options" />
 
-                                    <ToggleElement v-else-if="field.html == 'toggle' || field.html == 'switch'"
-                                        :name="field.name" :label="field.label" :id="field.name" :placeholder="field.label"
-                                        :description="field.description" :info="field.info" :default="field.default"
-                                        :true-value="1" :false-value="0" />
+                                    <ToggleElement
+                                        v-else-if="field.params.type == 'toggle' || field.params.type == 'switch'"
+                                        :name="field.name" :label="field.params.title" :id="field.name"
+                                        :placeholder="field.params.title" :description="field.params.description"
+                                        :info="field.params.info" :default="field.value" :true-value="1" :false-value="0" />
 
                                     <SelectElement v-else-if="field.params.type == 'select'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
@@ -105,35 +106,42 @@
                                     <RecordpickerElement v-else-if="field.params.type == 'recordpicker'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
                                         :description="field.params.description" :info="field.params.info"
-                                        :comp_url="field.params.comp_url" :setting="field.params.setting" />
+                                        :valdata="mdata[field.name]" :setting="field.params.setting" />
 
                                     <DropzoneElement v-else-if="field.params.type == 'dropzone'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
-                                        :description="field.params.description" :info="field.params.info" />
+                                        :description="field.params.description" :info="field.params.info"
+                                        :valdata="mdata[field.name]" />
 
                                     <FaceElement v-else-if="field.params.type == 'face'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
-                                        :description="field.params.description" :info="field.params.info" />
+                                        :description="field.params.description" :info="field.params.info"
+                                        :valdata="mdata[field.name]" />
 
                                     <MediaElement v-else-if="field.params.type == 'media'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
-                                        :description="field.params.description" :info="field.params.info" />
+                                        :description="field.params.description" :info="field.params.info"
+                                        :valdata="mdata[field.name]" />
 
                                     <MonthpickerElement v-else-if="field.params.type == 'monthpicker'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
-                                        :description="field.params.description" :info="field.params.info" />
+                                        :description="field.params.description" :info="field.params.info"
+                                        :valdata="mdata[field.name]" />
 
                                     <RecordselectElement v-else-if="field.params.type == 'recordselect'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
-                                        :description="field.params.description" :info="field.params.info" />
+                                        :description="field.params.description" :info="field.params.info"
+                                        :valdata="mdata[field.name]" />
 
                                     <WeekpickerElement v-else-if="field.params.type == 'weekpicker'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
-                                        :description="field.params.description" :info="field.params.info" />
+                                        :description="field.params.description" :info="field.params.info"
+                                        :valdata="mdata[field.name]" />
 
                                     <YearpickerElement v-else-if="field.params.type == 'yearpicker'" :name="field.name"
                                         :label="field.params.title" :id="field.name" :placeholder="field.params.title"
-                                        :description="field.params.description" :info="field.params.info" />
+                                        :description="field.params.description" :info="field.params.info"
+                                        :valdata="mdata[field.name]" />
 
                                     <TextElement v-else :name="field.name" :label="field.params.title" :id="field.name"
                                         :placeholder="field.params.title" :description="field.params.description"
