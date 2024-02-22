@@ -72,8 +72,8 @@ class Notification extends BaseModel
         $structure['table'] = ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'];
         $structure['form'] = [
             ['label' => 'Short', 'class' => 'col-span-full', 'fields' => ['short']],
-            ['label' => 'Medium', 'class' => 'col-span-6', 'fields' => ['medium']],
-            ['label' => 'Setting', 'class' => 'col-span-6', 'fields' => ['enable_short', 'enable_medium', 'enable_lengthy', 'published']],
+            ['label' => 'Medium', 'class' => 'col-span-full md:col-span-6', 'fields' => ['medium']],
+            ['label' => 'Setting', 'class' => 'col-span-full md:col-span-6', 'fields' => ['enable_short', 'enable_medium', 'enable_lengthy', 'published']],
             ['label' => 'Lengthy', 'class' => 'col-span-full', 'fields' => ['lengthy']],
         ];
         $structure['filter'] = ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'];

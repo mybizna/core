@@ -72,8 +72,8 @@ class State extends BaseModel
         $structure['table'] = ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'];
         $structure['form'] = [
             ['label' => 'Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'State', 'class' => 'col-span-6', 'fields' => ['country_code', 'type', 'item_id', 'state_code']],
-            ['label' => 'Location', 'class' => 'col-span-6', 'fields' => ['latitude', 'longitude', 'is_system']],
+            ['label' => 'State', 'class' => 'col-span-full md:col-span-6', 'fields' => ['country_code', 'type', 'item_id', 'state_code']],
+            ['label' => 'Location', 'class' => 'col-span-full md:col-span-6', 'fields' => ['latitude', 'longitude', 'is_system']],
         ];
         $structure['filter'] = ['name', 'country_code', 'type', 'item_id', 'state_code'];
 

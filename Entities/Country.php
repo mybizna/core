@@ -69,9 +69,9 @@ class Country extends BaseModel
         $structure['table'] = ['name', 'code', 'code3', 'latitude', 'longitude', 'is_system'];
         $structure['form'] = [
             ['label' => 'Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Code', 'class' => 'col-span-6', 'fields' => ['code', 'code3']],
-            ['label' => 'Geo-Code', 'class' => 'col-span-6', 'fields' => ['latitude', 'longitude']],
-            ['label' => 'Setting', 'class' => 'col-span-6', 'fields' => ['is_system']],
+            ['label' => 'Code', 'class' => 'col-span-full md:col-span-6', 'fields' => ['code', 'code3']],
+            ['label' => 'Geo-Code', 'class' => 'col-span-full md:col-span-6', 'fields' => ['latitude', 'longitude']],
+            ['label' => 'Setting', 'class' => 'col-span-full md:col-span-6', 'fields' => ['is_system']],
         ];
         $structure['filter'] = ['name', 'code', 'code3'];
 
