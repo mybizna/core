@@ -5,14 +5,14 @@ namespace Modules\Core\Entities;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Entities\BaseModel;
 
-class CompanyLocation extends BaseModel
+class Branch extends BaseModel
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = "core_company_location";
+    protected $table = "core_branch";
 
     /**
      * List of tables names that are need in this model during migration.
@@ -75,9 +75,9 @@ class CompanyLocation extends BaseModel
     {
         $structure['table'] = ['company_id', 'name', 'address_1', 'city', 'state', 'country', 'phone'];
         $structure['form'] = [
-            ['label' => 'Company Location Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Company Address', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['address_1', 'city', 'state', 'country']],
-            ['label' => 'Other Company Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['company_id', 'phone']],
+            ['label' => 'Branch Name', 'class' => 'col-span-full', 'fields' => ['name']],
+            ['label' => 'Branch Address', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['address_1', 'city', 'state', 'country']],
+            ['label' => 'Other Branch Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['company_id', 'phone']],
         ];
         $structure['filter'] = ['company_id', 'name', 'city', 'state', 'country'];
 
