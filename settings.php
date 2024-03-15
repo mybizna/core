@@ -3,6 +3,10 @@
 use Modules\Core\Classes\Currency;
 use Modules\Core\Classes\Language;
 
+if (!Schema::hasTable('core_currency') || !Schema::hasTable('core_language')) {
+    return [];
+}
+
 $currency = new Currency();
 $language = new Language();
 
