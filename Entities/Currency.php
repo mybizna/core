@@ -145,6 +145,12 @@ class Currency extends BaseModel
      */
     public function rights(): array
     {
+        $rights = parent::rights();
 
+        $rights['staff'] = ['view' => true];
+        $rights['registered'] = ['view' => true];
+        $rights['guest'] = [];
+
+        return $rights;
     }
 }
