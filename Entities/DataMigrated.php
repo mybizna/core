@@ -103,4 +103,14 @@ class DataMigrated extends BaseModel
         $this->fields->integer('item_id')->nullable()->default(null)->html('text');
         $this->fields->integer('counter')->nullable()->default(0)->html('text');
     }
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
 }

@@ -59,4 +59,15 @@ class LanguageTranslation extends BaseModel
         $this->fields->string('phrase')->html('text');
     }
 
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
+
 }

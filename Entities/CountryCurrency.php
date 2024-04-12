@@ -58,4 +58,15 @@ class CountryCurrency extends BaseModel
         $this->fields->string('country_code', 2)->html('text');
         $this->fields->string('country_code3', 3)->html('text');
     }
+
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
 }

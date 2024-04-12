@@ -56,4 +56,15 @@ class Language extends BaseModel
         $this->fields->string('name')->html('text');
         $this->fields->string('slug')->html('text');
     }
+
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
 }

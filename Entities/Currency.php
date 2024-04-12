@@ -136,4 +136,15 @@ class Currency extends BaseModel
         return parent::deleteRecord($id);
 
     }
+
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
 }
