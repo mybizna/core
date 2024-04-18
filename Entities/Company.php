@@ -5,14 +5,14 @@ namespace Modules\Core\Entities;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Entities\BaseModel;
 
-class Branch extends BaseModel
+class Company extends BaseModel
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = "core_branch";
+    protected $table = "core_company";
 
     /**
      * List of tables names that are need in this model during migration.
@@ -27,7 +27,7 @@ class Branch extends BaseModel
      * @var array<string>
      */
     protected $fillable = [
-        'company_id', 'name', 'address_1', 'address_2', 'city', 'state',
+        'name', 'address_1', 'address_2', 'city', 'state',
         'zip', 'country', 'fax', 'phone',
     ];
 
@@ -56,7 +56,6 @@ class Branch extends BaseModel
         $this->fields = $table ?? new Blueprint($this->table);
 
         $this->fields->increments('id');
-        $this->fields->unsignedInteger('company_id')->nullable()->index('company_id')->html('recordpicker')->relation(['core', 'company']);
         $this->fields->string('name')->nullable()->html('text');
         $this->fields->string('address_1')->nullable()->html('text');
         $this->fields->string('address_2')->nullable()->html('text');
@@ -73,13 +72,13 @@ class Branch extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure['table'] = [ 'name', 'company_id', 'city', 'state', 'country', 'phone', 'fax', 'zip'];
+        $structure['table'] = ['name', 'city', 'state', 'country_id', 'fax', 'phone'];
         $structure['form'] = [
             ['label' => 'Branch Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Branch Address', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['city', 'state', 'country', 'company_id', 'phone']],
-            ['label' => 'Other Branch Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['address_1', 'address_2', 'fax', 'zip']],
+            ['label' => 'Branch Address', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['phone', 'city', 'state', 'country_id']],
+            ['label' => 'Other Branch Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['fax', 'zip', 'address_1', 'address_2']],
         ];
-        $structure['filter'] = ['company_id', 'name', 'city', 'state', 'country'];
+        $structure['filter'] = ['name', 'city', 'state', 'country'];
 
         return $structure;
     }
