@@ -76,7 +76,7 @@ class Branch extends BaseModel
         $structure['table'] = [ 'name', 'company_id', 'city', 'state', 'country', 'phone', 'fax', 'zip'];
         $structure['form'] = [
             ['label' => 'Branch Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Branch Address', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['city', 'state', 'country', 'company_id', 'phone']],
+            ['label' => 'Branch Address', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['city', 'state', 'company_id', 'phone']],
             ['label' => 'Other Branch Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['address_1', 'address_2', 'fax', 'zip']],
         ];
         $structure['filter'] = ['company_id', 'name', 'city', 'state', 'country'];
