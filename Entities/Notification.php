@@ -30,13 +30,6 @@ class Notification extends BaseModel
         'enable_medium', 'enable_lengthy', 'published'];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['slug'];
-
-    /**
      * The attributes that should be mutated to dates.
      *
      * @var array <string>
@@ -62,40 +55,6 @@ class Notification extends BaseModel
         $this->fields->tinyInteger('enable_medium')->nullable()->default(0)->html('switch');
         $this->fields->tinyInteger('enable_lengthy')->nullable()->default(1)->html('switch');
         $this->fields->tinyInteger('published')->nullable()->default(1)->html('switch');
-    }
-
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-        $structure['table'] = ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'];
-        $structure['form'] = [
-            ['label' => 'Notification Short', 'class' => 'col-span-full', 'fields' => ['short']],
-            ['label' => 'Notification Medium', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['medium']],
-            ['label' => 'Notification Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['enable_short', 'enable_medium', 'enable_lengthy', 'published']],
-            ['label' => 'Notification Lengthy', 'class' => 'col-span-full', 'fields' => ['lengthy']],
-        ];
-        $structure['filter'] = ['slug', 'enable_short', 'enable_medium', 'enable_lengthy', 'published'];
-
-        return $structure;
-    }
-
-
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
-
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
     }
 
 }

@@ -32,13 +32,6 @@ class Branch extends BaseModel
     ];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['name'];
-
-    /**
      * The attributes that should be mutated to dates.
      *
      * @var array <string>
@@ -68,36 +61,8 @@ class Branch extends BaseModel
         $this->fields->string('phone', 20)->nullable()->html('text');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-        $structure['table'] = [ 'name', 'company_id', 'city', 'state', 'country', 'phone', 'fax', 'zip'];
-        $structure['form'] = [
-            ['label' => 'Branch Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Branch Address', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['city', 'state', 'company_id', 'phone']],
-            ['label' => 'Other Branch Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['address_1', 'address_2', 'fax', 'zip']],
-        ];
-        $structure['filter'] = ['company_id', 'name', 'city', 'state', 'country'];
+ 
 
-        return $structure;
-    }
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
-
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = [];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 
 }

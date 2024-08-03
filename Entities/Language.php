@@ -29,13 +29,6 @@ class Language extends BaseModel
     protected $fillable = ['name', 'slug'];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['name'];
-
-    /**
      * The attributes that should be mutated to dates.
      *
      * @var array <string>
@@ -58,19 +51,5 @@ class Language extends BaseModel
     }
 
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }

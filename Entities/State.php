@@ -15,25 +15,11 @@ class State extends BaseModel
     protected $table = "core_state";
 
     /**
-     * List of tables names that are need in this model.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The fields that can be filled
      *
      * @var array<string>
      */
     protected $fillable = ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'];
-
-    /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['name'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -64,21 +50,6 @@ class State extends BaseModel
         $this->fields->boolean('is_system')->default(true)->html('switch');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-        $structure['table'] = ['name', 'country_code', 'type', 'item_id', 'state_code', 'latitude', 'longitude', 'is_system'];
-        $structure['form'] = [
-            ['label' => 'State Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'State Details', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['country_code', 'type', 'item_id', 'state_code']],
-            ['label' => 'State Location', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['latitude', 'longitude', 'is_system']],
-        ];
-        $structure['filter'] = ['name', 'country_code', 'type', 'item_id', 'state_code'];
-
-        return $structure;
-    }
 
     /**
      * Function for deleting a record.
@@ -108,19 +79,4 @@ class State extends BaseModel
     }
 
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
-
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }

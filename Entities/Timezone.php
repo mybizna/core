@@ -17,12 +17,6 @@ class Timezone extends BaseModel
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = ['core_country'];
 
     /**
      * The fields that can be filled
@@ -30,13 +24,6 @@ class Timezone extends BaseModel
      * @var array<string>
      */
     protected $fillable = ["name", "country_id", "is_system"];
-
-    /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['name'];
 
     /**
      * The table associated with the model.
@@ -96,16 +83,7 @@ class Timezone extends BaseModel
         $this->fields->tinyInteger('is_system')->nullable()->default(0)->html('switch');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-        $structure['table'] = ["name", "country_id", "is_system"];
-        $structure['filter'] = ["name", "is_system"];
-
-        return $structure;
-    }
+ 
 
     /**
      * Function for deleting a record.
@@ -135,19 +113,5 @@ class Timezone extends BaseModel
     }
 
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }

@@ -30,12 +30,6 @@ class DataMigrated extends BaseModel
         'hash',
     ];
 
-    /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['array_key'];
 
     /**
      * The table associated with the model.
@@ -44,12 +38,6 @@ class DataMigrated extends BaseModel
      */
     protected $table = 'core_data_migrated';
 
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
 
     /**
      * Get the user that created the record.
@@ -104,19 +92,5 @@ class DataMigrated extends BaseModel
         $this->fields->integer('counter')->nullable()->default(0)->html('text');
     }
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = [];
-        $rights['registered'] = [];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }

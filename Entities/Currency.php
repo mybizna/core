@@ -41,13 +41,6 @@ class Currency extends BaseModel
     ];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['name', 'code'];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -138,19 +131,5 @@ class Currency extends BaseModel
     }
 
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }

@@ -15,32 +15,11 @@ class Country extends BaseModel
     protected $table = "core_country";
 
     /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The fields that can be filled
      *
      * @var array<string>
      */
     protected $fillable = ['name', 'code', 'code3', 'latitude', 'longitude', 'is_system'];
-
-    /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['name', 'code'];
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array <string>
-     */
-    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     /**
      * List of fields to be migrated to the datebase when creating or updating model during migration.
@@ -61,22 +40,7 @@ class Country extends BaseModel
         $this->fields->tinyInteger('is_system')->nullable()->default(0)->html('switch');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-        $structure['table'] = ['name', 'code', 'code3', 'latitude', 'longitude', 'is_system'];
-        $structure['form'] = [
-            ['label' => 'Country Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Country Code', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['code', 'code3']],
-            ['label' => 'Country Geo-Code', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['latitude', 'longitude']],
-            ['label' => 'Other Country Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['is_system']],
-        ];
-        $structure['filter'] = ['name', 'code', 'code3'];
 
-        return $structure;
-    }
 
     /**
      * Function for deleting a record.
@@ -105,19 +69,5 @@ class Country extends BaseModel
 
     }
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }
