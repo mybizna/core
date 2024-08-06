@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('core_notification', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('slug');
+            $table->string('short');
+            $table->string('medium');
+            $table->text('lengthy');
+            $table->tinyInteger('enable_short')->nullable()->default(1);
+            $table->tinyInteger('enable_medium')->nullable()->default(0);
+            $table->tinyInteger('enable_lengthy')->nullable()->default(1);
+            $table->tinyInteger('published')->nullable()->default(1);
+
             $table->timestamps();
         });
     }

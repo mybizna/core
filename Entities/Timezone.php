@@ -3,8 +3,6 @@
 namespace Modules\Core\Entities;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Schema\Blueprint;
-use Modules\Base\Classes\Migration;
 use Modules\Base\Entities\BaseModel;
 
 class Timezone extends BaseModel
@@ -16,7 +14,6 @@ class Timezone extends BaseModel
      * @var array <string>
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-
 
     /**
      * The fields that can be filled
@@ -68,24 +65,6 @@ class Timezone extends BaseModel
     }
 
     /**
-     * List of fields to be migrated to the datebase when creating or updating model during migration.
-     *
-     * @param Blueprint $table
-     * @return void
-     */
-    public function fields(Blueprint $table = null): void
-    {
-        $this->fields = $table ?? new Blueprint($this->table);
-
-        $this->fields->increments('id')->html('hidden');
-        $this->fields->string('name', 255)->html('text');
-        $this->fields->foreignId('country_id')->nullable()->default(null)->html('recordpicker')->relation(['core', 'country']);
-        $this->fields->tinyInteger('is_system')->nullable()->default(0)->html('switch');
-    }
-
- 
-
-    /**
      * Function for deleting a record.
      *
      * @param int $id
@@ -111,7 +90,5 @@ class Timezone extends BaseModel
         return parent::deleteRecord($id);
 
     }
-
-
 
 }

@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('core_data_migrated', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('module', 255);
+            $table->string('table_name', 255);
+            $table->string('array_key', 255);
+            $table->string('hash', 255);
+            $table->integer('item_id')->nullable()->default(null);
+            $table->integer('counter')->nullable()->default(0);
+
             $table->timestamps();
         });
     }

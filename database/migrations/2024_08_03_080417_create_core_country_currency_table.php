@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('core_country_currency', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('currency_code', 3);
+            $table->string('country_code', 2);
+            $table->string('country_code3', 3);
+
             $table->timestamps();
         });
     }

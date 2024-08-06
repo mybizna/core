@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('core_country', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('name');
+            $table->string('code', 2);
+            $table->string('code3', 3)->nullable()->default(null);
+            $table->string('latitude')->nullable()->default(null);
+            $table->string('longitude')->nullable()->default(null);
+            $table->tinyInteger('is_system')->nullable()->default(0);
+
             $table->timestamps();
         });
     }

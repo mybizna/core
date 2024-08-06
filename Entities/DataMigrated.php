@@ -3,7 +3,6 @@
 namespace Modules\Core\Entities;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Entities\BaseModel;
 
 class DataMigrated extends BaseModel
@@ -30,14 +29,12 @@ class DataMigrated extends BaseModel
         'hash',
     ];
 
-
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'core_data_migrated';
-
 
     /**
      * Get the user that created the record.
@@ -73,24 +70,5 @@ class DataMigrated extends BaseModel
     {
         return $query->orderBy('created_at', 'DESC');
     }
-    /**
-     * List of fields to be migrated to the datebase when creating or updating model during migration.
-     *
-     * @param Blueprint $table
-     * @return void
-     */
-    public function fields(Blueprint $table = null): void
-    {
-        $this->fields = $table ?? new Blueprint($this->table);
-        
-        $this->fields->bigIncrements('id')->html('text');
-        $this->fields->string('module', 255)->html('text');
-        $this->fields->string('table_name', 255)->html('text');
-        $this->fields->string('array_key', 255)->html('text');
-        $this->fields->string('hash', 255)->html('text');
-        $this->fields->integer('item_id')->nullable()->default(null)->html('text');
-        $this->fields->integer('counter')->nullable()->default(0)->html('text');
-    }
-
 
 }

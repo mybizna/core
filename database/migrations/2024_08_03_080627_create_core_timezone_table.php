@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('core_timezone', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('name', 255);
+            $table->integer('country_id')->nullable()->default(null);
+            $table->tinyInteger('is_system')->nullable()->default(0);
+
             $table->timestamps();
         });
     }

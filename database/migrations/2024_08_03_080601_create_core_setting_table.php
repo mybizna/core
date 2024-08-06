@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('core_setting', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('module');
+            $table->string('model');
+            $table->string('name');
+            $table->string('type');
+            $table->string('value');
+
             $table->timestamps();
         });
     }

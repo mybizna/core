@@ -2,7 +2,6 @@
 
 namespace Modules\Core\Entities;
 
-use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Entities\BaseModel;
 
 class CountryCurrency extends BaseModel
@@ -34,24 +33,5 @@ class CountryCurrency extends BaseModel
      * @var array <string>
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-
-    /**
-     * Handle post migration processes for adding foreign keys.
-     *
-     * @param Blueprint $table
-     *
-     * @return void
-     */
-    public function fields(Blueprint $table = null): void
-    {
-        $this->fields = $table ?? new Blueprint($this->table);
-        
-        $this->fields->increments('id')->html('hidden');
-        $this->fields->string('currency_code', 3)->html('text');
-        $this->fields->string('country_code', 2)->html('text');
-        $this->fields->string('country_code3', 3)->html('text');
-    }
-
-
 
 }

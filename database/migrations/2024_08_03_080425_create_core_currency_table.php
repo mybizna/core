@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('core_currency', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('name', 255);
+            $table->string('code', 255)->nullable()->default(null);
+            $table->string('symbol', 255)->nullable()->default(null);
+            $table->decimal('rate', 11, 2)->nullable()->default(null);
+            $table->decimal('buying', 11, 2)->nullable()->default(null);
+            $table->decimal('selling', 11, 2)->nullable()->default(null);
+            $table->integer('published')->nullable()->default(0);
+            $table->integer('is_fetched')->nullable()->default(0);
+            $table->tinyInteger('is_system')->nullable()->default(0);
+
             $table->timestamps();
         });
     }

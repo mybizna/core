@@ -3,7 +3,6 @@
 namespace Modules\Core\Entities;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Classes\Migration;
 use Modules\Base\Entities\BaseModel;
 
@@ -82,28 +81,6 @@ class Currency extends BaseModel
     }
 
     /**
-     * List of fields to be migrated to the datebase when creating or updating model during migration.
-     *
-     * @param Blueprint $table
-     * @return void
-     */
-    public function fields(Blueprint $table = null): void
-    {
-        $this->fields = $table ?? new Blueprint($this->table);
-        
-        $this->fields->increments('id')->html('hidden');
-        $this->fields->string('name', 255)->html('text');
-        $this->fields->string('code', 255)->nullable()->default(null)->html('text');
-        $this->fields->string('symbol', 255)->nullable()->default(null)->html('text');
-        $this->fields->decimal('rate', 11, 2)->nullable()->default(null)->html('text');
-        $this->fields->decimal('buying', 11, 2)->nullable()->default(null)->html('text');
-        $this->fields->decimal('selling', 11, 2)->nullable()->default(null)->html('text');
-        $this->fields->integer('published')->nullable()->default(0)->html('switch');
-        $this->fields->integer('is_fetched')->nullable()->default(0)->html('switch');
-        $this->fields->tinyInteger('is_system')->nullable()->default(0)->html('switch');
-    }
-
-    /**
      * Function for deleting a record.
      *
      * @param int $id
@@ -129,7 +106,5 @@ class Currency extends BaseModel
         return parent::deleteRecord($id);
 
     }
-
-
 
 }
