@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('slug')->nullable();
-            $table->integer('language_id')->nullable();
+            $table->foreignId('language_id')->nullable();
             $table->string('phrase')->nullable();
 
             $table->timestamps();
