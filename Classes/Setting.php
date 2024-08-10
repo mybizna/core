@@ -2,8 +2,8 @@
 
 namespace Modules\Core\Classes;
 
-use Modules\Core\Entities\Setting as DBSetting;
 use Modules\Core\Events\Setting as EVSetting;
+use Modules\Core\Models\Setting as DBSetting;
 
 class Setting
 {

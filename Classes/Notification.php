@@ -3,10 +3,10 @@
 namespace Modules\Core\Classes;
 
 use Illuminate\Support\Facades\Blade;
-use Modules\Core\Entities\Notification as DBNotification;
 use Modules\Core\Events\SendLengthy;
 use Modules\Core\Events\SendMedium;
 use Modules\Core\Events\SendShort;
+use Modules\Core\Models\Notification as DBNotification;
 
 class Notification
 {
@@ -20,7 +20,7 @@ class Notification
 
                 $data_arr = is_array($data) ? $data : json_decode(json_encode($data), true);
                 $data_arr['partner'] = $contact;
-                
+
                 $short = Blade::render($notification->short, $data_arr);
                 $medium = Blade::render($notification->medium, $data_arr);
                 $lengthy = Blade::render($notification->lengthy, $data_arr);

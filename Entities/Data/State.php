@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Entities\Data;
+namespace Modules\Core\Models\Data;
 
 use Modules\Base\Classes\Datasetter;
 
@@ -8,7 +8,7 @@ class State
 {
     /**
      * Set ordering of the Class to be migrated.
-     * 
+     *
      * @var int
      */
     public $ordering = 5;

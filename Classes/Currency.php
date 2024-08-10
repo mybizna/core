@@ -4,7 +4,7 @@ namespace Modules\Core\Classes;
 
 use Config;
 use Illuminate\Support\Facades\Cache;
-use Modules\Core\Entities\Currency as DBCurrency;
+use Modules\Core\Models\Currency as DBCurrency;
 
 class Currency
 {

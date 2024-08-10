@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Entities\Data;
+namespace Modules\Core\Models\Data;
 
 use DB;
 use Modules\Base\Classes\Datasetter;
@@ -9,7 +9,7 @@ class LanguageTranslation
 {
     /**
      * Set ordering of the Class to be migrated.
-     * 
+     *
      * @var int
      */
     public $ordering = 5;

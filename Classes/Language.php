@@ -4,7 +4,7 @@ namespace Modules\Core\Classes;
 
 use Config;
 use Illuminate\Support\Facades\Cache;
-use Modules\Core\Entities\Language as DBLanguage;
+use Modules\Core\Models\Language as DBLanguage;
 
 class Language
 {

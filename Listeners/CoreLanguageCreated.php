@@ -2,7 +2,7 @@
 
 namespace Modules\Core\Listeners;
 
-use Modules\Core\Entities\LanguageTranslation;
+use Modules\Core\Models\LanguageTranslation;
 
 class CoreLanguageCreated
 {

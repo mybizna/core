@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Core\Entities;
+namespace Modules\Core\Models;
 
 use Modules\Base\Classes\Migration;
-use Modules\Base\Entities\BaseModel;
+use Modules\Base\Models\BaseModel;
 
 class Currency extends BaseModel
 {
