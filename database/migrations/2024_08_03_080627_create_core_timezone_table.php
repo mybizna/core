@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name', 255);
-            $table->foreignId('country_id')->nullable()->default(null);
+            $table->foreignId('country_id')->constrained('core_country')->onDelete('cascade')->nullable()->default(null)->index('country_id');
             $table->tinyInteger('is_system')->nullable()->default(0);
 
             $table->timestamps();
