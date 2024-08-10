@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('slug')->nullable();
-            $table->foreignId('language_id')->constrained('core_language')->onDelete('cascade')->nullable()->index('language_id');
+            $table->foreignId('language_id')->constrained('core_language')->onDelete('cascade')->nullable()->index('core_language_translation_language_id');
             $table->string('phrase')->nullable();
 
             $table->timestamps();
