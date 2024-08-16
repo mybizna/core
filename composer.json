@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "mybizna/base": "^24.4"
+    "mybizna/base": "^2024.4"
   },
   "extra": {
     "laravel": {
