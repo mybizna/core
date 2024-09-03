@@ -6,6 +6,7 @@ use Modules\Base\Models\BaseModel;
 
 class State extends BaseModel
 {
+
     /**
      * The table associated with the model.
      *
@@ -53,5 +54,4 @@ class State extends BaseModel
         return parent::deleteRecord($id);
 
     }
-
 }

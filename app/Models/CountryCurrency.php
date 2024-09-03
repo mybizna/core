@@ -6,6 +6,7 @@ use Modules\Base\Models\BaseModel;
 
 class CountryCurrency extends BaseModel
 {
+
     /**
      * The table associated with the model.
      *
@@ -33,5 +34,4 @@ class CountryCurrency extends BaseModel
      * @var array <string>
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-
 }

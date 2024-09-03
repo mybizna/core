@@ -7,6 +7,7 @@ use Modules\Base\Models\BaseModel;
 
 class Currency extends BaseModel
 {
+
     /**
      * The table associated with the model.
      *
@@ -64,5 +65,4 @@ class Currency extends BaseModel
         return parent::deleteRecord($id);
 
     }
-
 }

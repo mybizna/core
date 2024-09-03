@@ -6,6 +6,7 @@ use Modules\Base\Models\BaseModel;
 
 class Country extends BaseModel
 {
+
     /**
      * The table associated with the model.
      *
@@ -46,5 +47,4 @@ class Country extends BaseModel
         return parent::deleteRecord($id);
 
     }
-
 }
