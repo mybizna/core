@@ -2,9 +2,6 @@
 
 namespace Modules\Core\Filament\Resources;
 
-use Modules\Core\Filament\Resources\CountryCurrencyResource\Pages;
-use Modules\Core\Filament\Resources\CountryCurrencyResource\RelationManagers;
-use Modules\Core\Models\CountryCurrency;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Core\Filament\Resources\CountryCurrencyResource\Pages;
+use Modules\Core\Models\CountryCurrency;
 
 class CountryCurrencyResource extends Resource
 {
     protected static ?string $model = CountryCurrency::class;
+
+    protected static ?string $slug = 'core/country/currency';
+
+    protected static ?string $navigationGroup = 'Core';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

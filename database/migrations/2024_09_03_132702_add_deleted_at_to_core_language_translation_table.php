@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('core_language_translation', function (Blueprint $table) {
-           $table->dropColumn('deleted_at'); 
+            $table->dropColumn('deleted_at');
         });
     }
-    }
+};

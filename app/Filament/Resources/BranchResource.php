@@ -2,9 +2,6 @@
 
 namespace Modules\Core\Filament\Resources;
 
-use Modules\Core\Filament\Resources\BranchResource\Pages;
-use Modules\Core\Filament\Resources\BranchResource\RelationManagers;
-use Modules\Core\Models\Branch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Core\Filament\Resources\BranchResource\Pages;
+use Modules\Core\Models\Branch;
 
 class BranchResource extends Resource
 {
     protected static ?string $model = Branch::class;
+
+    protected static ?string $slug = 'core/branch';
+
+    protected static ?string $navigationGroup = 'Core';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

@@ -9,7 +9,7 @@ class CoreServiceProvider extends ServiceProvider
 {
     protected string $moduleName = 'Core';
 
-    protected string $moduleNameLower = 'Core';
+    protected string $moduleNameLower = 'core';
 
     /**
      * Boot the application events.

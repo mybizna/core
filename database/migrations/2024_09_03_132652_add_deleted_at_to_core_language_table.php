@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /** 
+    /**
      * Run the migrations.
      */
     public function up(): void
@@ -15,14 +15,14 @@ return new class extends Migration
             $table->softDeletes();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
         Schema::table('core_language', function (Blueprint $table) {
-           $table->dropColumn('deleted_at'); 
+            $table->dropColumn('deleted_at');
         });
     }
-}
+};
