@@ -3,6 +3,7 @@
 namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
+use Modules\Core\Models\Company;
 
 class Branch extends BaseModel
 {
@@ -30,4 +31,13 @@ class Branch extends BaseModel
      * @var array <string>
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
+    /**
+     * Add relationship to Company
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

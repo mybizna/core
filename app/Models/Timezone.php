@@ -3,6 +3,7 @@
 namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
+use Modules\Core\Models\Country;
 
 class Timezone extends BaseModel
 {
@@ -27,6 +28,15 @@ class Timezone extends BaseModel
      * @var string
      */
     protected $table = 'core_timezone';
+
+    /**
+     * Add relationship to Country
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 
     /**
      * Function for deleting a record.
