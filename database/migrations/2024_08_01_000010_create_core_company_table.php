@@ -20,11 +20,16 @@ return new class extends Migration
             $table->string('city', 100)->nullable();
             $table->string('state', 100)->nullable();
             $table->integer('zip')->nullable();
-            $table->foreignId('country_id')->constrained('core_country')->onDelete('cascade')->nullable()->index('core_company_country_id');
+            $table->foreignId('country_id')->nullable()->constrained('core_country')->onDelete('set null');
             $table->string('fax', 20)->nullable();
             $table->string('phone', 20)->nullable();
 
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

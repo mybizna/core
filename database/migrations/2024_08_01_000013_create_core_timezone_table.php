@@ -15,10 +15,15 @@ return new class extends Migration
             $table->id();
 
             $table->string('name', 255);
-            $table->foreignId('country_id')->constrained('core_country')->onDelete('cascade')->nullable()->default(null)->index('core_timezone_country_id');
+            $table->foreignId('country_id')->nullable()->constrained('core_country')->onDelete('set null');
             $table->tinyInteger('is_system')->nullable()->default(0);
 
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -14,18 +14,23 @@ return new class extends Migration
         Schema::create('core_branch', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('company_id')->constrained('core_company')->onDelete('cascade')->nullable()->index('core_branch_company_id');
+            $table->foreignId('company_id')->nullable()->constrained('core_company')->onDelete('set null');
             $table->string('name')->nullable();
             $table->string('address_1')->nullable();
             $table->string('address_2')->nullable();
             $table->string('city', 100)->nullable();
             $table->string('state', 100)->nullable();
             $table->integer('zip')->nullable();
-            $table->foreignId('country_id')->constrained('core_country')->onDelete('cascade')->nullable()->index('core_branch_country_id');
+            $table->foreignId('country_id')->nullable()->constrained('core_country')->onDelete('set null');
             $table->string('fax', 20)->nullable();
             $table->string('phone', 20)->nullable();
 
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
