@@ -4,15 +4,12 @@ namespace Modules\Core\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Core\Filament\Resources\CountryCurrencyResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Core\Models\CountryCurrency;
 
-class CountryCurrencyResource extends Resource
+class CountryCurrencyResource extends BaseResource
 {
     protected static ?string $model = CountryCurrency::class;
 
@@ -72,27 +69,4 @@ class CountryCurrencyResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListCountryCurrencies::route('/'),
-            'create' => Pages\CreateCountryCurrency::route('/create'),
-            'edit' => Pages\EditCountryCurrency::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }

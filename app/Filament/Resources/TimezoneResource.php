@@ -4,15 +4,12 @@ namespace Modules\Core\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Core\Filament\Resources\TimezoneResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Core\Models\Timezone;
 
-class TimezoneResource extends Resource
+class TimezoneResource extends BaseResource
 {
     protected static ?string $model = Timezone::class;
 
@@ -74,27 +71,4 @@ class TimezoneResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListTimezones::route('/'),
-            'create' => Pages\CreateTimezone::route('/create'),
-            'edit' => Pages\EditTimezone::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }

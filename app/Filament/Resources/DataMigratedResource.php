@@ -4,15 +4,12 @@ namespace Modules\Core\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Core\Filament\Resources\DataMigratedResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Core\Models\DataMigrated;
 
-class DataMigratedResource extends Resource
+class DataMigratedResource extends BaseResource
 {
     protected static ?string $model = DataMigrated::class;
 
@@ -89,27 +86,4 @@ class DataMigratedResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListDataMigrateds::route('/'),
-            'create' => Pages\CreateDataMigrated::route('/create'),
-            'edit' => Pages\EditDataMigrated::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }
