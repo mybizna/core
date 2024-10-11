@@ -4,7 +4,6 @@ namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
 use Modules\Core\Models\Language;
-use Modules\Core\Models\LanguageTranslation;
 
 class LanguageTranslation extends BaseModel
 {
