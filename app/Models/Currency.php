@@ -4,6 +4,7 @@ namespace Modules\Core\Models;
 
 use Modules\Base\Classes\Migration;
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class Currency extends BaseModel
 {
@@ -46,7 +47,7 @@ class Currency extends BaseModel
      *
      * @return array
      */
-    public function deleteRecord($id)
+    public function deleteRecord($id): mixed
     {
 
         $currency = $this->where('id', $id)->first();
@@ -63,6 +64,22 @@ class Currency extends BaseModel
         }
 
         return parent::deleteRecord($id);
+
+    }
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('name', 255);
+        $table->string('code', 255)->nullable()->default(null);
+        $table->string('symbol', 255)->nullable()->default(null);
+        $table->decimal('rate', 11, 2)->nullable()->default(null);
+        $table->decimal('buying', 11, 2)->nullable()->default(null);
+        $table->decimal('selling', 11, 2)->nullable()->default(null);
+        $table->integer('published')->nullable()->default(0);
+        $table->integer('is_fetched')->nullable()->default(0);
+        $table->tinyInteger('is_system')->nullable()->default(0);
 
     }
 }

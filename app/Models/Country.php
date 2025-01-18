@@ -3,6 +3,7 @@
 namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class Country extends BaseModel
 {
@@ -28,7 +29,7 @@ class Country extends BaseModel
      *
      * @return void
      */
-    public function deleteRecord($id)
+    public function deleteRecord($id): mixed
     {
 
         $country = $this->where('id', $id)->first();
@@ -46,5 +47,17 @@ class Country extends BaseModel
 
         return parent::deleteRecord($id);
 
+    }
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('name');
+        $table->string('code', 2);
+        $table->string('code3', 3)->nullable()->default(null);
+        $table->string('latitude')->nullable()->default(null);
+        $table->string('longitude')->nullable()->default(null);
+        $table->tinyInteger('is_system')->nullable()->default(0);
     }
 }

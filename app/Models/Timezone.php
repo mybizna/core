@@ -4,6 +4,8 @@ namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
 use Modules\Core\Models\Country;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Timezone extends BaseModel
 {
@@ -33,7 +35,7 @@ class Timezone extends BaseModel
      * Add relationship to Country
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function country()
+    public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
@@ -45,7 +47,7 @@ class Timezone extends BaseModel
      *
      * @return array
      */
-    public function deleteRecord($id)
+    public function deleteRecord($id): mixed
     {
 
         $timezone = $this->where('id', $id)->first();
@@ -65,4 +67,14 @@ class Timezone extends BaseModel
 
     }
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('name', 255);
+        $table->foreignId('country_id')->nullable()->constrained(table: 'core_country')->onDelete('set null');
+        $table->tinyInteger('is_system')->nullable()->default(0);
+
+    }
 }

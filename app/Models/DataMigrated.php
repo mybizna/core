@@ -3,6 +3,7 @@
 namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class DataMigrated extends BaseModel
 {
@@ -34,5 +35,18 @@ class DataMigrated extends BaseModel
      * @var string
      */
     protected $table = 'core_data_migrated';
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('module', 255);
+        $table->string('table_name', 255);
+        $table->string('array_key', 255);
+        $table->string('hash', 255);
+        $table->integer('item_id')->nullable()->default(null);
+        $table->integer('counter')->nullable()->default(0);
+
+    }
 
 }

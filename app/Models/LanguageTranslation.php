@@ -4,6 +4,8 @@ namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
 use Modules\Core\Models\Language;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class LanguageTranslation extends BaseModel
 {
@@ -33,9 +35,19 @@ class LanguageTranslation extends BaseModel
      * Add relationship to Language
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function language()
+    public function language(): BelongsTo
     {
         return $this->belongsTo(Language::class);
+    }
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('slug')->nullable();
+        $table->foreignId('language_id')->nullable()->constrained(table: 'core_language')->onDelete('set null');
+        $table->string('phrase')->nullable();
+
     }
 
 }

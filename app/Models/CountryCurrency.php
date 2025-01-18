@@ -3,6 +3,7 @@
 namespace Modules\Core\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class CountryCurrency extends BaseModel
 {
@@ -34,4 +35,14 @@ class CountryCurrency extends BaseModel
      * @var array <string>
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('currency_code', 3);
+        $table->string('country_code', 2);
+        $table->string('country_code3', 3);
+
+    }
 }
