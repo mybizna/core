@@ -31,7 +31,6 @@ class Setting extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('module');
         $table->string('model');

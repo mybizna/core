@@ -1,9 +1,8 @@
 <?php
-
 namespace Modules\Core\Models;
 
-use Modules\Base\Models\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Models\BaseModel;
 
 class Country extends BaseModel
 {
@@ -29,18 +28,18 @@ class Country extends BaseModel
      *
      * @return void
      */
-    public function deleteRecord($id): mixed
+    public function deleteRecord($id): null | array | bool
     {
 
         $country = $this->where('id', $id)->first();
 
         if ($country->is_system) {
             return [
-                'module' => $this->module,
-                'model' => $this->model,
-                'status' => 0,
-                'error' => 1,
-                'record' => [],
+                'module'  => $this->module,
+                'model'   => $this->model,
+                'status'  => 0,
+                'error'   => 1,
+                'record'  => [],
                 'message' => 'You can not Delete a Country Set by system.',
             ];
         }
@@ -51,7 +50,6 @@ class Country extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('name');
         $table->string('code', 2);

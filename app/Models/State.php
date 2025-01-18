@@ -58,7 +58,6 @@ class State extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('name');
         $table->string('country_code', 2);

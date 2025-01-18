@@ -42,7 +42,6 @@ class LanguageTranslation extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('slug')->nullable();
         $table->foreignId('language_id')->nullable()->constrained(table: 'core_language')->onDelete('set null');

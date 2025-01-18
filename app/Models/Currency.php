@@ -69,7 +69,6 @@ class Currency extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('name', 255);
         $table->string('code', 255)->nullable()->default(null);

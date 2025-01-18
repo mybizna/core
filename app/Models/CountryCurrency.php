@@ -38,7 +38,6 @@ class CountryCurrency extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('currency_code', 3);
         $table->string('country_code', 2);

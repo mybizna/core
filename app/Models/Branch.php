@@ -5,6 +5,7 @@ namespace Modules\Core\Models;
 use Modules\Base\Models\BaseModel;
 use Modules\Core\Models\Company;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Branch extends BaseModel
 {
@@ -44,7 +45,6 @@ class Branch extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->foreignId('company_id')->nullable()->constrained(table: 'core_company')->onDelete('set null');
         $table->string('name')->nullable();

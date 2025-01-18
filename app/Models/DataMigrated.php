@@ -38,7 +38,6 @@ class DataMigrated extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('module', 255);
         $table->string('table_name', 255);
