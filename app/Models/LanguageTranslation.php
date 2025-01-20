@@ -44,9 +44,14 @@ class LanguageTranslation extends BaseModel
     {
 
         $table->string('slug')->nullable();
-        $table->foreignId('language_id')->nullable()->constrained(table: 'core_language')->onDelete('set null');
+       $table->unsignedBigInteger('language_id')->nullable();
         $table->string('phrase')->nullable();
 
+    }
+
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('language_id')->references('id')->on('core_language')->onDelete('set null');
     }
 
 }

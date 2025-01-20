@@ -1,11 +1,10 @@
 <?php
-
 namespace Modules\Core\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Models\BaseModel;
 use Modules\Core\Models\Country;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Timezone extends BaseModel
 {
@@ -54,11 +53,11 @@ class Timezone extends BaseModel
 
         if ($timezone->is_system) {
             return [
-                'module' => $this->module,
-                'model' => $this->model,
-                'status' => 0,
-                'error' => 1,
-                'record' => [],
+                'module'  => $this->module,
+                'model'   => $this->model,
+                'status'  => 0,
+                'error'   => 1,
+                'record'  => [],
                 'message' => 'You can not Delete a Timezone Set by system..',
             ];
         }
@@ -67,13 +66,17 @@ class Timezone extends BaseModel
 
     }
 
-
     public function migration(Blueprint $table): void
     {
 
         $table->string('name', 255);
-        $table->foreignId('country_id')->nullable()->constrained(table: 'core_country')->onDelete('set null');
+        $table->unsignedBigInteger('country_id')->nullable();
         $table->tinyInteger('is_system')->nullable()->default(0);
 
+    }
+
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('country_id')->references('id')->on('core_country')->onDelete('set null');
     }
 }

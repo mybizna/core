@@ -46,16 +46,21 @@ class Branch extends BaseModel
     public function migration(Blueprint $table): void
     {
 
-        $table->foreignId('company_id')->nullable()->constrained(table: 'core_company')->onDelete('set null');
+        $table->unsignedBigInteger('company_id')->nullable();
         $table->string('name')->nullable();
         $table->string('address_1')->nullable();
         $table->string('address_2')->nullable();
         $table->string('city', 100)->nullable();
         $table->string('state', 100)->nullable();
         $table->integer('zip')->nullable();
-        $table->foreignId('country_id')->nullable()->constrained(table: 'core_country')->onDelete('set null');
+        $table->unsignedBigInteger('country_id')->nullable();
         $table->string('fax', 20)->nullable();
         $table->string('phone', 20)->nullable();
 
+    }
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('company_id')->references('id')->on('core_company')->onDelete('set null');
+        $table->foreign('country_id')->references('id')->on('core_country')->onDelete('set null');
     }
 }
